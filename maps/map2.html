@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  </head>
+  <body onunload="GUnload()">
+
+    <div id="map" style="width: 550px; height: 450px"></div>
+ 
+
+    <script type="text/javascript">
+    //<![CDATA[
+    
+    if (GBrowserIsCompatible()) { 
+
+      function createMarker(point,html) {
+        var marker = new GMarker(point);
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        return marker;
+      }
+
+      // Display the map, with some controls and set the initial location 
+      var map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(43.907787,-79.359741),8);
+    
+      // Set up three markers with info windows 
+    
+      var point = new GLatLng(43.65654,-79.90138);
+      var marker = createMarker(point,'<div style="width:240px">Some stuff to display in the First Info Window. With a <a href="http://www.econym.demon.co.uk/">Link<\/a> to my home page<\/div>')
+      map.addOverlay(marker);
+
+      var point = new GLatLng(43.91892,-78.89231);
+      var marker = createMarker(point,'Some stuff to display in the<br>Second Info Window')
+      map.addOverlay(marker);
+
+      var point = new GLatLng(43.82589,-79.10040);
+      var marker = createMarker(point,'Some stuff to display in the<br>Third Info Window')
+      map.addOverlay(marker);
+
+    }
+    
+    // display a warning if the browser was not compatible
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+
+
+    //]]>
+    </script>
+  </body>
+
+
+<!-- Mirrored from econym.org.uk/gmap/example_map.htm by HTTrack Website Copier/3.x [XR&CO'2008], Fri, 27 Feb 2009 02:21:58 GMT -->
+</html>
+
+
+
+

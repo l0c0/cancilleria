@@ -1,0 +1,63 @@
+*********
+Changelog
+*********
+
+1.2.4
+-----
+* Improved overall error messages
+* Galleria now prints debug messages to the Galleria container for easier debugging
+* Debug is now true by default - set debug to false when deploying
+* Changed lightbox image to use the bigger image if available
+* Fixed a link bug that caused the link destination to be mixed up between images
+* Added a rel attribute in the HTML that can be used to provide a big image for fullscreen view
+* Removed a thumbnail height check before validating the measurements
+* Added keyboard nav for the lightbox
+* Added canvas rescaling support for better thumbnail generation on the client. Still experimental; set useCanvas to true if you want to try it.
+* Fixed a rounding error in IE9 that caused the thumbnails to stretch
+* Added CSS3 animations (including hardware optimized for iOS) with jQuery fallbacks for all transitions and other animations
+* Added a swipe option (default true) to activate swipe gesture for navigating on touch devices
+* Improved the touchstart event for a better mobile experience in general
+* Improved the Galleria.TOUCH boolean to detect if the document supports an actual touch event
+* Improved the classic theme, other themes will also be improved
+* Fixed a webkit bug where the scrollbar sometimes disappeared after returning from fullscreen
+* Added a Galleria.ready function to simplify customizations and attaching plugins to each gallery when initialized
+* Added a new transition: 'doorslide' that will slide the images in opposite directions
+* Added 'idleMode' option, set this to false to prevent the gallery from entering idle mode at all
+* Added 'fullscreenDoubleTap' option (default true) that listens for the double-tap event on touch devices and toggle fullscreen mode if it happens.
+
+1.2.3
+-----
+* Added Flickr plugin docs
+* Increased CSS load timeout to fix many loadTheme errors
+* Increased image load timeout to 30sec
+* Added 'big' as data key. This makes it possible to provide a bigger image for fullscreen mode.
+* Added 'Using image data' reference to explain in detail how Galleria handles image data
+* Added isPlaying(), isFullscreen() and refreshImage() to the API docs
+* Fixed so that exiting fullscreen mode will also revert the keymap that was applied before entering
+* Fixed attachKeyboard so that you can attach a custom keyCode (thanks rspeicher)
+* Fixed chrome bug when fading the tooltip
+* Fixed double show bug when using load()
+* Fixed initialTransition option bug
+* Fixed so that the counter updates properly when modifying the data object at run time
+* Improved lightbox controls
+* Fixed fade bug in lightbox mode
+* Added a lightbox option as a helper for attaching a click event that triggers the lightbox for each image
+* Added playToggle() method in the docs
+
+1.2.2
+-----
+* Fixed showInfo, showCounter and showImagenav options
+* Fixed IE bug when loading a theme from jQuery’s domReady callback
+* Fixed IE7 bug when calculating height, it now takes the maximum height from different values
+* Fixed IE bug when showing/hiding counters with transparent pngs inside
+
+1.2.1
+-----
+
+* Fixed Chrome image loading bug in Chrome 9 / OSX by forcing chrome to reload the image using a timestamp get if no width/height is detected.
+* Removed the Galleria.THEMELOAD event that caused the debugger to throw an error in debug mode when using multiple instances.
+
+1.2
+---
+
+* 1.2 stable release 2011-02-18

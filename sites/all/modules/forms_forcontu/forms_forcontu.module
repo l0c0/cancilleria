@@ -1,0 +1,165 @@
+<?php
+/**
+* @file
+* Forms Forcontu
+* Forcontu - Ejemplos de formularios
+*/
+
+/**
+* Implements hook_menu().
+*/
+function forms_forcontu_menu() {
+  $items['forms_forcontu/form1'] = array(
+    'title' => t('Example Form 1'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('forms_forcontu_form1'),
+    'access callback' => TRUE,
+    'description' => t('Example Form 1'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['forms_forcontu/form2'] = array(
+    'title' => 'Example Form 2',
+    'description' => 'Distintos elementos de formulario.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('forms_forcontu_form2'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+* Función de retorno para la página forms_forcontu/form1.
+*/
+function forms_forcontu_form1($form_state) {
+  $form['description'] = array(
+    '#type' => 'item',
+    '#title' => t('A simple form'),
+  );
+  $form['full_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Full Name'),
+  );
+  return $form;
+}
+
+/**
+* Función de retorno para la página forms_forcontu/form2.
+*/
+function forms_forcontu_form2($form_state){
+  // Contenedor para pestañas verticales
+  $form['tabs'] = array (
+    '#type' => 'vertical_tabs',
+  );
+  
+// Bloque de información de la cuenta de usuario
+  $form['tabs']['account_info'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Información de la cuenta'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['tabs']['account_info']['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('E-mail'),
+    '#default_value' => 'E-mail de usuario',
+    '#size' => 30,
+    '#maxlength' => 30,
+    '#required' => TRUE,
+  );
+  $form['tabs']['account_info']['pass'] = array(
+    '#type' => 'password_confirm',
+    '#title' => t('Password'),
+    '#size' => 15,
+  );
+  $form['tabs']['account_info']['signature'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Tu firma',
+    '#default_value' => 'Firma',
+    '#size' => 30,
+    '#maxlength' => 30,
+  );
+
+  // Bloque de información personal
+  $form['tabs']['personal_info'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Información personal',
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['tabs']['personal_info']['first_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Nombre',
+    '#required' => TRUE,
+    '#default_value' => "Nombre",
+    '#description' => "Escriba su nombre",
+    '#size' => 20,
+    '#maxlength' => 20,
+  );
+  $form['tabs']['personal_info']['last_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Apellidos',
+    '#required' => TRUE,
+    '#default_value' => "Apellidos",
+    '#description' => "Escriba sus apellidos",
+    '#size' => 40,
+    '#maxlength' => 40,
+  );
+  $form['tabs']['personal_info']['ejemplo_imagen_fid'] = array(
+    '#title' => 'Tu foto',
+    '#type' => 'managed_file',
+    '#description' => t('La imagen subida será mostrada en tu perfil.'),
+    '#default_value' => variable_get('image_demo_form', ''),
+    '#upload_location' => '/sites/default/files',
+  );
+  $form['tabs']['personal_info']['months'] = array(
+      '#type' => 'select',
+      '#title' => t('Month'),
+      '#default_value' => 'january',
+      '#options' => array(
+        'january' => t('January'),
+        'february' => t('February'),
+        'march' => t('March'),
+        'april' => t('April'),
+        'may' => t('May'),
+        'june' => t('June'),
+        'july' => t('July'),
+        'august' => t('August'),
+        'september' => t('September'),
+        'october' => t('October'),
+        'november' => t('November'),
+        'december' => t('December'),
+      ),
+    '#description' => t('Selecciona mes de nacimiento'),
+  );
+  
+// Bloque de información profesional
+  $form['tabs']['professional_info'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Información profesional',
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['tabs']['professional_info']['new_upload'] = array(
+    '#type' => 'file',
+    '#title' =>'Adjunta tu CV',
+    '#size' => 40,
+    '#attributes' => array('enctype' => "multipart/form-data"),
+  );
+  
+  // Envío de formulario
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Enviar'),
+  );
+  return $form;
+}
+
+/**
+* Función de envío del formulario forms_forcontu_form2
+*/
+function forms_forcontu_form2_submit($form, &$form_state){
+  drupal_set_message ("<strong>Su cuenta de usuario ha sido creada
+  correctamente.</strong>");
+  drupal_goto("");
+}

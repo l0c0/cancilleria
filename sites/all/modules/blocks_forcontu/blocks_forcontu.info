@@ -1,0 +1,5 @@
+name = "Blocks Forcontu"
+description = "Blocks Forcontu"
+core = 7.x
+files[] = blocks_forcontu.module
+package = Andres

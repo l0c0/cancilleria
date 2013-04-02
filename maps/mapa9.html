@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Consulados de Colombia</title>
+    <link href="default.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      function initialize() {
+        var mapOptions = {
+          zoom: 2,
+          center: new google.maps.LatLng(40, -80),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var i;
+        var position;
+        
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        // Add 5 markers to the map at random locations
+        //var southWest = new google.maps.LatLng(-31.203405, 125.244141);
+        //var northEast = new google.maps.LatLng(-25.363882, 131.044922);
+
+        //var bounds = new google.maps.LatLngBounds(southWest, northEast);
+        //map.fitBounds(bounds);
+
+
+		// Newark
+        i=0;
+        position = new google.maps.LatLng(40.760261, -73.986139);  
+        
+
+        var marker = new google.maps.Marker({position: position,map: map});
+        marker.setTitle((i + 1).toString());
+        attachSecretMessage(marker, i);
+
+        // Orlando
+        i=1;
+        position = new google.maps.LatLng(28.542231, -81.373930);  
+        var marker = new google.maps.Marker({position: position,map: map});
+        marker.setTitle((i + 1).toString());
+        attachSecretMessage(marker, i);
+
+        // Atlanta
+        i=2;
+        position = new google.maps.LatLng(33.942221, -84.377747);  
+        var marker = new google.maps.Marker({position: position,map: map});
+        marker.setTitle((i + 1).toString());
+        attachSecretMessage(marker, i);
+        
+        // Bogota
+        i=3;
+        position = new google.maps.LatLng(4.642472,-74.138339);  
+        var marker = new google.maps.Marker({position: position,map: map});
+        marker.setTitle((i + 1).toString());
+        attachSecretMessage(marker, i);
+        
+        // Madrid
+        i=4;
+        position = new google.maps.LatLng(40.435613,-3.689947);  
+        var marker = new google.maps.Marker({position: position,map: map});
+        marker.setTitle((i + 1).toString());
+        attachSecretMessage(marker, i);
+      }
+
+
+
+      
+      function attachSecretMessage(marker, num) {
+        var message = [
+        'Consulado de Colombia en Newark<br>550 Broad Street, piso 15, Newark, NJ, 07102', 
+        'Consulado de Colombia en Orlando<br>Orlando Florida', 
+        'Consulado de Colombia en Atlanta<br>Atlanta, Georgia', 
+        'Ministerio de Relaciones Exteriores<br>Calle 10 No. 5-51, Palacio de San Carlos, Bogot&aacute;', 
+        'Embajada de Colombia en Espa&ntilde;a<br>General Martinez Campos, 48 28010. Madrid'
+        ];
+      
+        var infowindow = new google.maps.InfoWindow({
+          content: message[num]
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(marker.get('map'), marker);
+        });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+  </body>
+</html>

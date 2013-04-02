@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+h2 {
+	font-family:DINWeb-bold,sans-serif;
+	text-shadow: 1px 0 1px #003365;
+	color: #003365;
+}
+
+.ver {
+	background-color:#FD6500;
+    font-weight: bold;
+	color:#FFFFFF;
+	padding:3px 10px;
+	border-radius:2px;
+	margin:5px 5px;
+	font-size:14px;
+}
+
+.ver a:link, .ver a:active, .ver a:hover, .ver a:visited {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+img {
+	border:none;
+	max-width:100%;
+}
+
+#back_header {
+	background-image:url(../images/header-back.jpg);
+	background-repeat:no-repeat;
+	padding:45px 0 5px 5px;
+	margin:auto;
+	background-size:cover;
+}
+
+#logo {
+	margin:0 auto;
+}
+
+#header {
+	margin:0 auto;
+}
+
+#footer {
+	color: #D8D8D8;
+	font-size:10px;
+	background-color:#000;
+	text-align:center;
+	padding:4px;
+}
+
+#footer a:link, #footer a:hover, #footer a:active, #footer a:visited {
+	text-decoration:none;
+	color:#D8D8D8;
+	font-weight:bold;
+}
+
+.main_menu {
+	background-color:#EEEEEE;
+	padding:6px;
+	text-align:center;
+	padding:3px;
+}
+
+.clear {
+	clear:both;
+}
+
+.menu_item {
+	background-color:#EEEEEE;
+	color: #646361;
+	padding:10px;
+	font-weight:bold;
+	margin-bottom:1px;
+	font-size:14px;
+}
+
+.menu_item a:link, .menu_item a:active, .menu_item a:hover, .menu_item a:visited {
+	color: #646361;
+	text-decoration:none;
+}
+
+.main_wraper {
+	padding:0 3px 0 3px;
+}
+
+.news_img {
+	float:left;
+	margin:3px 5px;
+}
+
+.clear {
+	clear:both;
+	padding:5px;
+}
+
+.news_date {
+	margin:5px 5px;
+	color:#353535;
+}
+
+.news_title {
+	margin:5px 5px;
+	font-weight:bold;
+	color:#353535;
+}
+
+.art_description {
+	padding:3px;
+}
+
+.art_title {
+	color: #003365;
+	text-shadow: 1px 0 1px #003365;
+    font-family: DINWeb-bold,sans-serif;
+	font-size:14px;
+	padding:4px;
+	text-align:center;
+}
+
+.art_img {
+	margin:5px auto;
+	padding:4px;
+	max-width:99%;
+	text-align:center;
+}
+
+.art_description {
+	padding:3px;
+}
+
+.link_body {
+	color: #646361;
+	font-weight:bold;
+	padding:10px;
+}
+
+.link_body a:active, .link_body a:hover, .link_body a:visited, .link_body a:link {
+	color: #646361;
+	text-decoration:none;
+}
+
+.separator {
+	padding:3px;
+	border-bottom:solid 1px #666;
+	clear:both;
+	margin:3px;
+}

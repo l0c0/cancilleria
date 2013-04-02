@@ -1,0 +1,154 @@
+/**
+ * A simple sample carousel skin.
+ *
+ * This skin includes a sample arrows.svg file that may be edited with the free
+ * illustration application InkScape (http://inkscape.org).
+ *
+ * CSS and icons by Nathan Haug.
+ */
+
+.jcarousel-skin-heart_government {
+  text-align: center;
+  min-height: 320px;
+}
+
+.jcarousel-skin-heart_government .jcarousel-container-horizontal {
+  width: 440px;
+  height: 100px;
+  padding: 10px 10px;
+  margin: auto;
+}
+
+.jcarousel-skin-heart_government .jcarousel-container-vertical {
+  height: 330px;
+  margin-left: 35px;
+  padding: 0;
+  width: 250px;
+}
+
+.jcarousel-skin-heart_government .jcarousel-clip-horizontal {
+  width: 440px;
+  overflow: hidden;
+}
+
+.jcarousel-skin-heart_government .jcarousel-clip-vertical {
+  height: 330px;
+  overflow: hidden;
+}
+
+.jcarousel-skin-heart_government .jcarousel-item {
+  border-top: 1px none #CCC;
+  padding: 0;
+  width: 210px;
+  height: 100px;
+  overflow: hidden;
+  list-style: none !important;
+  background: none;  
+}
+
+.jcarousel-skin-heart_government .jcarousel-item-horizontal {
+  margin: 0 4px;
+  list-style: none !important;
+}
+
+.jcarousel-skin-heart_government .jcarousel-item-vertical {
+  margin: 4px 0;
+  list-style: none !important;
+}
+
+.jcarousel-skin-heart_government .jcarousel-item-placeholder {
+  background: #fff url(throbber.gif) no-repeat center center;
+  color: #000;
+}
+
+/**
+ * Buttons
+ */
+.jcarousel-skin-heart_government .jcarousel-next,
+.jcarousel-skin-heart_government .jcarousel-prev {
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-image: url(arrows.png);
+}
+
+.jcarousel-skin-heart_government .jcarousel-next-disabled,
+.jcarousel-skin-heart_government .jcarousel-prev-disabled {
+  display: none;
+}
+
+/**
+ * Horizontal Buttons
+ */
+.jcarousel-skin-heart_government .jcarousel-prev-horizontal {
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  background-position: 0 0;
+}
+.jcarousel-skin-heart_government .jcarousel-prev-horizontal:hover {
+  background-position: -32px 0;
+}
+.jcarousel-skin-heart_government .jcarousel-prev-horizontal:active {
+  background-position: -64px 0;
+}
+
+.jcarousel-skin-heart_government .jcarousel-next-horizontal {
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  background-position: 0 -32px;
+}
+.jcarousel-skin-heart_government .jcarousel-next-horizontal:hover {
+  background-position: -32px -32px;
+}
+.jcarousel-skin-heart_government .jcarousel-next-horizontal:active {
+  background-position: -64px -32px;
+}
+
+/**
+ * Vertical Buttons
+ */
+.jcarousel-skin-heart_government .jcarousel-prev-vertical {
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  background-position: 0 -64px;
+}
+.jcarousel-skin-heart_government .jcarousel-prev-vertical:hover {
+  background-position: -32px -64px;
+}
+.jcarousel-skin-heart_government .jcarousel-prev-vertical:active {
+  background-position: -64px -64px;
+}
+
+.jcarousel-skin-heart_government .jcarousel-next-vertical {
+  position: absolute;
+  bottom: 10px;
+  left: 55px;
+  background-position: 0 -96px;
+}
+.jcarousel-skin-heart_government .jcarousel-next-vertical:hover {
+  background-position: -32px -96px;
+}
+.jcarousel-skin-heart_government .jcarousel-next-vertical:active {
+  background-position: -64px -96px;
+}
+
+.jcarousel-skin-heart_government .jcarousel-navigation {
+  margin: 0;
+  padding: 0;
+}
+
+.jcarousel-skin-heart_government .jcarousel-navigation li {
+  display: inline;
+  margin: 0 2px 0 0;
+  padding: 0;
+  background: none;
+}
+
+.jcarousel-skin-heart_government .jcarousel-navigation li.active a {
+  font-weight: bold;
+  text-decoration: none;
+}
+

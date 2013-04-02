@@ -1,0 +1,5 @@
+name = "Users Forcontu"
+description = "Users Forcontu"
+core = 7.x
+files[] = users_forcontu.module
+package = Andres

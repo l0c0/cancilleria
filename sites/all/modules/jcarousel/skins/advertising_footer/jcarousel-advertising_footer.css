@@ -1,0 +1,153 @@
+/**
+ * A simple sample carousel skin.
+ *
+ * This skin includes a sample arrows.svg file that may be edited with the free
+ * illustration application InkScape (http://inkscape.org).
+ *
+ * CSS and icons by Nathan Haug.
+ */
+
+.jcarousel-skin-advertising_footer {
+  text-align: center;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-container-horizontal {
+background: none repeat scroll 0 0 #FFFFFF;
+height: 138px;
+margin: 15px 20px 0;
+padding: 0;
+width: 920px;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-container-vertical {
+  width: 260px;
+  height: 282px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-clip-horizontal {
+  margin-left: 55px;
+  overflow: hidden;
+  width: 840px;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-clip-vertical {
+  height: 240px;
+  overflow: hidden;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-item {
+  padding: 0;
+  width: 184px;
+  height: 140px;
+  overflow: hidden;
+  border: 0px solid #CCC;
+  list-style: none;
+  background: #fff none;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-item-horizontal {
+  margin: 0px;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-item-vertical {
+  margin: 0px 0;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-item-placeholder {
+  background: #fff url(throbber.gif) no-repeat center center;
+  color: #000;
+}
+
+/**
+ * Buttons
+ */
+.jcarousel-skin-advertising_footer .jcarousel-next,
+.jcarousel-skin-advertising_footer .jcarousel-prev {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url(arrows_cancilleria_2.png);
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-next-disabled,
+.jcarousel-skin-advertising_footer .jcarousel-prev-disabled {
+  display: none;
+}
+
+/**
+ * Horizontal Buttons
+ */
+.jcarousel-skin-advertising_footer .jcarousel-prev-horizontal {
+  position: absolute;
+  top: 55px;
+  left: 0px;
+  background-position: 0 0;
+}
+.jcarousel-skin-advertising_footer .jcarousel-prev-horizontal:hover {
+  background-position: -32px 0;
+}
+.jcarousel-skin-advertising_footer .jcarousel-prev-horizontal:active {
+  background-position: -64px 0;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-next-horizontal {
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  background-position: 0 -32px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-next-horizontal:hover {
+  background-position: -32px -32px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-next-horizontal:active {
+  background-position: -64px -32px;
+}
+
+/**
+ * Vertical Buttons
+ */
+.jcarousel-skin-advertising_footer .jcarousel-prev-vertical {
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  background-position: 0 -64px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-prev-vertical:hover {
+  background-position: -32px -64px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-prev-vertical:active {
+  background-position: -64px -64px;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-next-vertical {
+  position: absolute;
+  bottom: 10px;
+  left: 55px;
+  background-position: 0 -96px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-next-vertical:hover {
+  background-position: -32px -96px;
+}
+.jcarousel-skin-advertising_footer .jcarousel-next-vertical:active {
+  background-position: -64px -96px;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-navigation {
+  margin: 0;
+  padding: 0;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-navigation li {
+  display: inline;
+  margin: 0 2px 0 0;
+  padding: 0;
+  background: none;
+}
+
+.jcarousel-skin-advertising_footer .jcarousel-navigation li.active a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
