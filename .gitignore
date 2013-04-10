@@ -1,5 +1,8 @@
 # Ignore configuration files that may contain sensitive information.
 *~
+*.gzip
+*.bzip2
+*.zip
 error_log
 sites/*/settings*.php
 
