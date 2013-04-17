@@ -3407,6 +3407,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 .Primera_Pagina .Cancilleria_blockcontent { width:960px;} 
 .Primera_Pagina .layout-4a-fastlinks-content{width:960px !important;} 
 
+.responsive .Primera_Pagina .Cancilleria_postcontent { width:auto;} 
+.responsive .Primera_Pagina .Cancilleria_blockcontent { width:auto;} 
+.responsive .Primera_Pagina .layout-4a-fastlinks-content{width:auto !important;} 
+
+
+
 .field.field-name-field-image-full-description.field-type-text-long.field-label-hidden {
   background: url("/sites/all/themes/Cancilleria/images/BgBlack60.png") repeat scroll center top transparent;
   bottom: 4px;
@@ -3457,6 +3463,11 @@ padding: 0 10px;
   visibility: hidden !important;
   width: 0 !important;
 }
+
+.responsive .region.region-art-header {
+  visibility: hidden;
+}
+
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
