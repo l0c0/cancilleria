@@ -3464,6 +3464,17 @@ padding: 0 10px;
   visibility: hidden !important;
   width: 0 !important;
 }
+.responsive #Pagina_Inicial .Noticias_Diapositivas .views-field-title {
+  width: auto;
+}
+.responsive .views-slideshow-controls-bottom .views-slideshow-controls-text {
+  margin-left: 0;
+  width: auto;
+}
+.responsive .views-slideshow-controls-bottom .views-slideshow-slide-counter {
+  left: 50%;
+  position: absolute;
+}
 
 .responsive .region.region-art-header {
   visibility: hidden;
