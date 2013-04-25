@@ -3468,11 +3468,9 @@ padding: 0 10px;
 .responsive .region.region-art-header {
   visibility: hidden;
 }
-
-.responsive .block.block-block {
+.responsive .Cancilleria_block.clearfix {
   display: none;
 }
-
 .responsive .jcarousel-skin-advertising_footer .jcarousel-container-horizontal {
   background: none repeat scroll 0 0 #FFFFFF;
   height: 138px;
@@ -3481,6 +3479,9 @@ padding: 0 10px;
   width: auto;
 }
 
+.responsive .inside.panels-flexible-column-inside.panels-flexible-column-714-7-inside.panels-flexible-column-inside-last {
+  display: none;
+}
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
