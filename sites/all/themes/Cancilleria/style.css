@@ -3493,6 +3493,11 @@ padding: 0 10px;
 .responsive .inside.panels-flexible-column-inside.panels-flexible-column-714-7-inside.panels-flexible-column-inside-last {
   display: none;
 }
+.responsive .Logo_Adaptativo {
+  background: url("/sites/all/themes/Cancilleria/images/LogoAdaptativo.png") no-repeat scroll center top / contain  transparent;
+  height: 100px;
+  width: auto;
+}
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
