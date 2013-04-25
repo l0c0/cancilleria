@@ -3499,12 +3499,11 @@ padding: 0 10px;
   width: auto;
   background-color: #ededed;
 }
-.responsive #Pagina_Inicial .Noticias_Diapositivas h3 {
-color:#FFF;
-font-size:small;
-margin:0px
+.responsive .Logo_Adaptativo {
+  background: url("/sites/all/themes/Cancilleria/images/LogoAdaptativo.png") no-repeat scroll center top / contain  #EDEDED;
+  height: 100px;
+  width: auto;
 }
-
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
