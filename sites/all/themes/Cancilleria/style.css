@@ -2401,7 +2401,7 @@ blockquote p,
 .Cancilleria_footer a,
 .Cancilleria_footer a:link
 {
-   color: #000000;
+   color: #FFFFFF;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    text-decoration: none;
    text-transform: none;
@@ -2410,7 +2410,7 @@ blockquote p,
 
 .Cancilleria_footer a:visited
 {
-   color: #000000;
+   color: #FFFFFF;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    text-decoration: none;
    text-transform: none;
@@ -2419,11 +2419,11 @@ blockquote p,
 
 .Cancilleria_footer a:hover
 {
-   color: #2B1399;
+   color: #FFFFFF;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    text-decoration: underline;
    text-transform: none;
-   font-variant: normal;
+   font-variant: bold;
 }
 
 .Cancilleria_footer img
