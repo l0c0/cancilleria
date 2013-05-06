@@ -3464,6 +3464,12 @@ padding: 0 10px;
   visibility: hidden !important;
   width: 0 !important;
 }
+
+/* Centra la lista galeria de imagenes*/ 
+.field-content.lista-galeria-imagen {
+  text-align: center;
+}
+
 .responsive #Pagina_Inicial .Noticias_Diapositivas .views-field-title {
   width: auto;
 }
