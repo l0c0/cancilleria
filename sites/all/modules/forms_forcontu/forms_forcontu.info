@@ -1,5 +1,0 @@
-name = "Forms Forcontu"
-description = "Forms Forcontu"
-core = 7.x
-files[] = forms_forcontu.module
-package = Andres
