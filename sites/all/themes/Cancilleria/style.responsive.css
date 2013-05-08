@@ -389,3 +389,8 @@
 	background-size:306px 73px;
 	height:85px;
 }
+
+.responsive .field.field-name-field-image-full-description.field-type-text-long.field-label-hidden{
+	margin-left:5px;
+	width:285px;
+}

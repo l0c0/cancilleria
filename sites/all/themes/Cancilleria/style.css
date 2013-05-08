@@ -3330,7 +3330,8 @@ float:right;
 }
 
 .views-slideshow-controls-bottom .views-slideshow-slide-counter {
-left:476px;
+left:50%;
+top:0;
 position:absolute;
 }
 
@@ -3463,6 +3464,11 @@ padding: 0 10px;
 .page-alianzadelpacifico .Cancilleria_layout-cell.Cancilleria_sidebar1.clearfix {
   visibility: hidden !important;
   width: 0 !important;
+}
+
+/* Centra la presentación */ 
+.field-content.Lista-Galeria-Imagenes {
+  margin-left: 12%;
 }
 
 /* Centra la lista galeria de imagenes*/ 
