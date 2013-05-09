@@ -3470,7 +3470,10 @@ padding: 0 10px;
 .field-content.Lista-Galeria-Imagenes {
   margin-left: 12%;
 }
-
+.view.view-images-gallery-last.view-id-images_gallery_last.view-display-id-block_5 {
+  margin-left: 10%;
+  margin-top: 10px;
+}
 /* Centra la lista galeria de imagenes*/ 
 .field-content.lista-galeria-imagen {
   text-align: center;
