@@ -3478,6 +3478,16 @@ padding: 0 10px;
 .field-content.lista-galeria-imagen {
   text-align: center;
 }
+.pane-images-gallery-last .view-display-id-block_5 .skin-default {
+  width: 745px;
+}
+.pane-images-gallery-last .view-display-id-block_2 .skin-default {
+  width: 920px;
+}
+.pane-images-gallery-last .views-slideshow-controls-top {
+  margin-left: 50%;
+}
+
 
 .responsive #Pagina_Inicial .Noticias_Diapositivas .views-field-title {
   width: auto;
