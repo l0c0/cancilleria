@@ -1337,8 +1337,8 @@ ul.Cancilleria_vmenu ul a
    min-height: 24px;
    overflow: visible;
    padding: 0;
-   padding-left: 23px;
-   padding-right: 23px;
+   padding-left: 15px;
+   padding-right: 10px;
    z-index: 0;
    line-height: 24px;
    color: #333333;
@@ -1353,7 +1353,6 @@ ul.Cancilleria_vmenu ul a
 
 ul.Cancilleria_vmenu ul a:visited, ul.Cancilleria_vmenu ul a.active:hover, ul.Cancilleria_vmenu ul a:hover, ul.Cancilleria_vmenu ul a.active
 {
-   line-height: 24px;
    color: #333333;
    font-size: 12px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -1366,19 +1365,19 @@ ul.Cancilleria_vmenu ul a:visited, ul.Cancilleria_vmenu ul a.active:hover, ul.Ca
 
 ul.Cancilleria_vmenu ul ul a
 {
-   padding-left: 46px;
+   padding-left: 35px;
 }
 ul.Cancilleria_vmenu ul ul ul a
 {
-   padding-left: 69px;
+   padding-left: 55px;
 }
 ul.Cancilleria_vmenu ul ul ul ul a
 {
-   padding-left: 92px;
+   padding-left: 75px;
 }
 ul.Cancilleria_vmenu ul ul ul ul ul a
 {
-   padding-left: 115px;
+   padding-left: 95px;
 }
 
 ul.Cancilleria_vmenu ul>li>a:hover, ul.Cancilleria_vmenu ul>li>a.active:hover
