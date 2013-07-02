@@ -33,7 +33,9 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    margin: 0;
    padding: 0;
 }
-
+ul li {
+  list-style-position: inside;
+}
 /* Reset buttons border. It's important for input and button tags.
  * border-collapse should be separate for shadow in IE.
  */
@@ -107,13 +109,22 @@ ul.Cancilleria_vmenu a
    font-variant: normal;
 }
 
-.Cancilleria_postcontent a, .Cancilleria_postcontent a:link
+#Pagina_Inicial .Cancilleria_postcontent a, #Pagina_Inicial .Cancilleria_postcontent a:link
 {
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    text-decoration: none;
    text-transform: none;
    font-variant: normal;
    color: #000000;
+}
+.Cancilleria_postcontent a, .Cancilleria_postcontent a:link
+{
+   font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+   text-decoration: none;
+   text-transform: none;
+   font-variant: normal;
+   color: #2C139A;
+   font-weight: 600;
 }
 
 .Cancilleria_postcontent a, .Cancilleria_postcontent a:link h3
@@ -189,15 +200,16 @@ ul.Cancilleria_vmenu a
 
 .Cancilleria_postcontent h2
 {
-   color: #000000;
+   color: #808080;
    margin:0;
-   font-size: 16px;
+   font-size: 18px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
-   font-weight: bold;
+   font-weight: 400;
    font-style: normal;
    text-decoration: none;
    text-transform: none;
    font-variant: normal;
+   margin-top: 15px;
 }
 
 .Cancilleria_blockcontent h2
@@ -221,6 +233,7 @@ ul.Cancilleria_vmenu a
    text-decoration: none;
    text-transform: none;
    font-variant: normal;
+   color: #000000;
 }
 
 .Cancilleria_postcontent h3
@@ -691,7 +704,7 @@ ul.Cancilleria_hmenu>li:hover>a {
 
 ul.Cancilleria_hmenu>li>a:hover, .desktop ul.Cancilleria_hmenu>li:hover>a
 {
-   background: #2B1399;
+   background: #2C139A;
    padding:0 12px;
    margin:0 auto;
 }
@@ -712,7 +725,7 @@ ul.Cancilleria_hmenu>li.justify-separator
 
 ul.Cancilleria_hmenu li li a
 {
-   background: #2B1399;
+   background: #2C139A;
    padding:0 22px;
    margin:0 auto;
 }
@@ -792,7 +805,7 @@ ul.Cancilleria_hmenu ul li a:hover, .desktop ul.Cancilleria_hmenu ul li:hover>a
 
 ul.Cancilleria_hmenu ul:before
 {
-   background: #2B1399;
+   background: #2C139A;
    margin:0 auto;
    display: block;
    position: absolute;
@@ -944,7 +957,7 @@ ul.Cancilleria_hmenu ul
    left: 0;
    /* border + shadow */
   bottom: -0;
-   background-color: #2B1399;
+   background-color: #2C139A;
    border: 0 solid transparent;
    border-top-left-radius: 0;
    border-top-right-radius: 0;
@@ -1010,7 +1023,7 @@ ul.Cancilleria_hmenu>li.ext>.ext-off
    top: 0;
    /* border + shadow */
   bottom: -0;
-   background-color: #2B1399;
+   background-color: #2C139A;
    border: 0 solid transparent;
    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
 }
@@ -1109,7 +1122,7 @@ ul.Cancilleria_hmenu>li.ext>.ext-off
    top: -0;
    bottom: -0;
    /* shadow offset */
-  background-color: #2B1399;
+  background-color: #2C139A;
    border: 0 solid transparent;
    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
 }
@@ -1250,7 +1263,7 @@ ul.Cancilleria_vmenu>li:first-child
 
 ul.Cancilleria_vmenu>li>a:hover, ul.Cancilleria_vmenu>li>a.active:hover
 {
-   background: #FFFFFF;
+   background: #2C139A;;
    padding:0 5px;
    margin:0 auto;
 }
@@ -1263,7 +1276,8 @@ ul.Cancilleria_vmenu>li>a:hover, ul.Cancilleria_vmenu>li>a.active:hover
 
 ul.Cancilleria_vmenu a:hover, ul.Cancilleria_vmenu a.active:hover
 {
-   color: #15295B;
+   color: #FFFFFF;
+/*   color: #15295B;*/
 }
 
 ul.Cancilleria_vmenu>li>a.active:hover>span.border-top, ul.Cancilleria_vmenu>li>a.active:hover>span.border-bottom
@@ -1382,7 +1396,7 @@ ul.Cancilleria_vmenu ul ul ul ul ul a
 
 ul.Cancilleria_vmenu ul>li>a:hover, ul.Cancilleria_vmenu ul>li>a.active:hover
 {
-   background: #FFFFFF;
+   background: #2C139A;
    margin:0 auto;
 }
 ul.Cancilleria_vmenu ul li a:hover, ul.Cancilleria_vmenu ul li a.active:hover
@@ -1392,7 +1406,8 @@ ul.Cancilleria_vmenu ul li a:hover, ul.Cancilleria_vmenu ul li a.active:hover
    text-decoration: underline;
    text-transform: none;
    font-variant: normal;
-   color: #15295B;
+/*   color: #15295B;*/
+   color: #FFFFFF;
 }
 
 ul.Cancilleria_vmenu ul a:hover:after
@@ -1463,7 +1478,7 @@ div.Cancilleria_block img
 
 .Cancilleria_blockheader
 {
-   background: #2B1399;
+   background: #2C139A;
    border:1px solid #19306B;
    padding:8px 2px;
    margin:0 auto;
@@ -1537,7 +1552,7 @@ div.Cancilleria_block img
 
 .Cancilleria_blockcontent a:hover, .Cancilleria_blockcontent a.hover
 {
-   color: #2B1399;
+   color: #2C139A;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    text-decoration: underline;
    text-transform: none;
@@ -2313,7 +2328,7 @@ blockquote p,
    text-decoration: underline;
    text-transform: none;
    font-variant: normal;
-   color: #2B1399;
+   color: #2C139A;
 }
 
 .Cancilleria_postcategoryicon:before
@@ -2369,7 +2384,7 @@ blockquote p,
 
 .Cancilleria_footer
 {
-   background: #2B1399;
+   background: #2C139A;
    margin:0 auto;
    position: relative;
    color: #FFFFFF;
@@ -2749,7 +2764,7 @@ text-decoration:none
 }
 
 #Enlaces_Footer li a:hover {
-color:#2B1399!important;
+color:#2C139A!important;
 text-decoration:underline
 }
 
@@ -3049,7 +3064,7 @@ background:#590A99
 }
 
 #layout-4a-flinkscg-mintrabajo div {
-background:#2B1399
+background:#2C139A
 }
 
 #layout-4a-flinkscg-mintransporte div {
@@ -3108,7 +3123,8 @@ margin:10px 0
 }
 
 #Pagina_Inicial .Noticias_Principales .Noticias-Principales-Linea h2 a:hover {
-text-decoration:underline
+text-decoration:underline;
+
 }
 
 #Pagina_Inicial .Agenda_Ministerial .pane-title {
@@ -3199,9 +3215,18 @@ width:960px;
 }
 
 .Cancilleria_postcontent a:hover {
-color:#2B1399;
+color:#2C139A;
+}
+.breadcrumb a:hover {
+color:#000000;
 }
 
+.Cancilleria_postcontent a:visited {
+color:#2C139A;
+}
+.breadcrumb a:visited {
+color:#000000;
+}
 .Cancilleria_postcontent ul > li {
 content:no-close-quote!important;
 }
@@ -3237,7 +3262,7 @@ padding:5px
 }
 
 .pane-title {
-background:#2B1399;
+background:#2C139A;
 border:1px solid #19306B;
 color:#FFF!important;
 font-size:14px!important;
@@ -3303,7 +3328,7 @@ line-height:115%;
 }
 
 .view-id-home_news_last h5 a:hover {
-color:#2B1399!important;
+color:#2C139A !important;
 }
 
 .view-id-video_gallery .view-content a,.view-id-audio_gallery .view-content a,.view-id-images_gallery .view-content a {
@@ -3528,6 +3553,214 @@ padding: 0 10px;
   height: 100px;
   width: auto;
 }
+.Servibanca {
+  background: url("/sites/all/themes/Cancilleria/images/servibanca.png") no-repeat scroll 1px 0 / contain  transparent;
+  padding-left: 15px;
+}
+.PSE {
+  background: url("/sites/all/themes/Cancilleria/images/pse.png") no-repeat scroll 1px 0 / contain  transparent;
+  padding-left: 20px;
+}
+.Citibank {
+  background: url("/sites/all/themes/Cancilleria/images/citibank.png") no-repeat scroll 1px 0 / contain  transparent;
+  padding-left: 60px;
+}
+
+.BotonAzul{
+  border-collapse: collapse;
+  margin: 20px 0 !important;
+  height: 25px;
+}
+.BotonAzul td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_izq.jpg") no-repeat scroll 0 0 transparent;
+  width: 8px;
+}
+.BotonAzul td + td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_medio.jpg") repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  max-width: 400px;
+  min-width: 350px;
+  text-align: center;
+  cursor: pointer;
+}
+.BotonAzul td + td a {
+/* background: url("/sites/all/themes/Cancilleria/images/boton_borde_medio.jpg") repeat scroll 0 0 transparent; */
+  color: #FFFFFF !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+.BotonAzul td + td + td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_der.jpg") no-repeat scroll 0 0 transparent;
+}
+/* TRAMITES Y SERVICIOS*/
+
+.Apostilla-TengaEnCuenta-OnLine {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/tenga_en_cuenta_en_linea.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+}
+.Apostilla-TengaEnCuenta-Bogota {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/tenga_en_cuenta_en_bogota.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+}
+.TablaAdjuntos {
+  width: 94%;
+}
+.TablaAdjuntos tr {
+  border: 1px solid #CCCCCC;
+}
+.TablaAdjuntos td {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/barra_gris_claro.png");
+  font-weight: 600;
+  height: 35px;
+  padding: 0 10px;
+  color: #777777;
+}
+.TablaAdjuntos td + td{
+  background: none;
+  width: 20px;
+}
+.TablaAdjuntos img {
+  display: list-item;
+  height: 16px;
+  width: 16px;
+}
+
+.HagaSuApostilla-ServicioPresencial td {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_servicio_presencial_sedes_bogota.png");
+  background-repeat: no-repeat;
+  padding-top: 80px;
+}
+.HagaSuApostilla-ServicioPresencial td + td {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_servicio_presencial_sedes_fuera.png");
+  background-repeat: no-repeat;
+  padding-top: 80px;
+}
+.LugaresExpedicion td {
+  background-image: url("/sites/default/files/tramites_servicios/pasaportes/imagenes/lugares_expedicion_bogota.png");
+  background-repeat: no-repeat;
+  padding-top: 80px;
+  width: 50%;
+}
+.LugaresExpedicion td + td {
+  background-image: url("/sites/default/files/tramites_servicios/pasaportes/imagenes/lugares_expedicion_fuera_bogota.png");
+  background-repeat: no-repeat;
+  padding-top: 80px;
+}
+
+
+.TramitesColombia {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_costos_colombia.png");
+  background-repeat: no-repeat;
+  padding-top: 85px;
+  background-position: 0px 20px;
+}
+.TramitesExterior {
+  background-image: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_costos_exterior.png");
+  background-repeat: no-repeat;
+  padding-top: 85px;
+  background-position: 0px 20px;
+}
+.HagaSuApostilla-Costos {
+  background: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_costos_txt.png") no-repeat scroll 0 0 transparent;
+  padding-top: 50px;
+  vertical-align: top;
+  padding-left: 0px;
+  padding-right: 15px;
+  width: 50%;
+}
+.HagaSuApostilla-Medios {
+  background: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/haga_su_apostilla_medios_pago_txt.png") no-repeat scroll 0 0 transparent;
+  padding-top: 50px;
+  vertical-align: top;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.ui-accordion {
+  margin: 30px 25px 20px 30px !important;
+  width: auto !important;
+}
+ui-accordion-header {
+  background-color: #F5F5F5 !important;
+}
+.ui-accordion-content {
+  background-color: #F5F5F5 !important;
+  background-image: none !important;
+}
+.ui-state-active {
+  background-color: #D2D2D2 !important;
+  background-image: none !important;
+}
+.EnLinea tr td {
+  background: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/registro_firma_enlinea.png") no-repeat scroll 0 0 transparent;
+  padding-top: 65px;
+}
+.DebeTenerEnCuenta {
+  background: url("/sites/default/files/tramites_servicios/fondo_texto_solo.png") no-repeat scroll 0 10px transparent;
+}
+.DebeTenerEnCuenta > h2 {
+color: #808080;
+font-size: 18px;
+font-weight: 600;
+padding-left: 15px;
+padding-top: 0;
+}
+.DebeTenerEnCuenta > p {
+  padding-top: 25px;
+}
+.EnBogota td {
+  background-image: url("/sites/default/files/tramites_servicios/en_bogota.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  height: 80px;
+}
+.FueraDeBogota td {
+  background-image: url("/sites/default/files/tramites_servicios/fuera_de_bogota.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  height: 80px;
+}
+.EnElExterior td {
+  background-image: url("/sites/default/files/tramites_servicios/en_el_exterior.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  height: 80px;
+}
+.PasaportesRequisitosMayores td {
+  background-image: url("/sites/default/files/tramites_servicios/pasaportes/imagenes/pasaportes-requisitos-mayor.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  padding-right: 60px;
+  height: 80px;
+}
+.PasaportesRequisitosMenores td {
+  background-image: url("/sites/default/files/tramites_servicios/pasaportes/imagenes/pasaportes-requisitos-menor.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  padding-right: 60px;
+  height: 80px;
+}
+.PasaportesRequisitosExentos td {
+  background-image: url("/sites/default/files/tramites_servicios/pasaportes/imagenes/pasaportes-requisitos-exento.png");
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  padding-top: 65px;
+  padding-right: 60px;
+  height: 80px;
+}
+
+
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
@@ -3551,7 +3784,7 @@ ul li, .item-list ul li, .menu ul li,
 ul li.expanded, ul li.leaf, ul li.collapsed,
 li.expanded, li.leaf, li.collapsed
 {
-	text-align: left;
+	text-align: justify;
 	list-style-type: none;
 	list-style-image: none;
 }
