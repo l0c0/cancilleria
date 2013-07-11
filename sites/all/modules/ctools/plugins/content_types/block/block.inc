@@ -282,17 +282,27 @@ function ctools_block_content_type_admin_title($subtype, $conf) {
  * Output function for the 'block' content type. Outputs a block
  * based on the module and delta supplied in the configuration.
  */
+
 function ctools_block_content_type_admin_info($subtype, $conf) {
   list($module, $delta) = _ctools_block_get_module_delta($subtype, $conf);
   $block = (object) module_invoke($module, 'block_view', $delta);
 
-  // Sanitize the block because <script> tags can hose javascript up:
-  if (!empty($block->content)) {
-    $block->content = filter_xss_admin($block->content);
-  }
-
-  if (!empty($block) && !empty($block->subject)) {
-    $block->title = $block->subject;
+  // Only proceed if a block was returned.
+  if (!empty($block)) {
+    // Sanitize the block because <script> tags can hose javascript up.
+    if (!empty($block->content)) {
+      // If this isn't a simple string then it needs to be rendered first.
+      if (!is_string($block->content)) {
+        $block->content = drupal_render($block->content);
+      }
+      $block->content = filter_xss_admin($block->content);
+    }
+    if (!empty($block->subject)) {
+      $block->title = $block->subject;
+    }
+    elseif (empty($block->title)) {
+      $block->title = t('No title');
+    }
     return $block;
   }
 }
