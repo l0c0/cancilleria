@@ -4,6 +4,7 @@
 *.gzip
 *.bzip2
 *.zip
+.ftpquota
 error_log
 sites/*/settings*.php
 
@@ -15,3 +16,4 @@ sites/*/private
 /tmp
 /w1
 /w2
+

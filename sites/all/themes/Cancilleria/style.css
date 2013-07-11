@@ -3760,6 +3760,9 @@ padding-top: 0;
   height: 80px;
 }
 
+.view-header {
+  padding: 20px 20px 0;
+}
 
 /* End Additional CSS Styles */
 
