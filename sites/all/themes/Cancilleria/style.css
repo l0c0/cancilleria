@@ -3764,6 +3764,19 @@ padding-top: 0;
   padding: 20px 20px 0;
 }
 
+#rendicion-cuentas {
+background-image: url("/sites/default/files/rendicion-03.jpg");
+background-position: 0px 0px;
+height: 400px;
+margin-left: -20px !important;
+width: 920px;
+margin-top: -5px !important;
+}
+#rendicion-cuentas object {
+  margin-left: 340px;
+  margin-top: 10px;
+}
+
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
