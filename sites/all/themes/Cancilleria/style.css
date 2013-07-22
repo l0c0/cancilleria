@@ -3393,9 +3393,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 .views-exposed-form {
   margin-left: 30px;
 }
-.media-youtube-video.media-youtube-1 iframe {
+#Pagina_Inicial .media-youtube-video.media-youtube-1 iframe {
   height: 200px;
   width: 290px;
+}
+.media-youtube-video.media-youtube-1 {
+  text-align: center;
 }
 
 .pie_de_foto_secciones {
@@ -3765,8 +3768,8 @@ padding-top: 0;
 }
 
 #rendicion-cuentas {
-background-image: url("/sites/default/files/rendicion-03.jpg");
-background-position: 0px 0px;
+/* background-image: url("/sites/default/files/rendicion-03.jpg"); 
+background-position: 0px 0px;*/
 height: 400px;
 margin-left: -20px !important;
 width: 920px;
@@ -3776,7 +3779,29 @@ margin-top: -5px !important;
   margin-left: 340px;
   margin-top: 10px;
 }
-
+#rendicion-cuentas > iframe {
+  height: 400px;
+  margin-left: -5px;
+  width: 920px;
+}
+.galeria_20_julio {
+  background: none repeat scroll 0 0 #000000;
+  height: 333px !important;
+  width: 920px;
+}
+.columna_youtube iframe {
+  height: 328px;
+}
+/*
+.negocios .views-row-last .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active {
+  margin-left: 0;
+  padding: 0 !important;
+}
+.negocios .views-row-last .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active .field-content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+*/
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
