@@ -5,12 +5,12 @@ dependencies[] = image
 package = User interface
 core = 7.x
 
-files[] = imagecache_proportions.module
+files[] = imagecache_proportions.test
 
 
-; Information added by drupal.org packaging script on 2011-07-05
-version = "7.x-1.0"
+; Information added by drupal.org packaging script on 2013-07-23
+version = "7.x-1.1"
 core = "7.x"
 project = "imagecache_proportions"
-datestamp = "1309875117"
+datestamp = "1374540984"
 

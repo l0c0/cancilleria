@@ -1,4 +1,4 @@
-This module provides a CCK formatter for image fields that allows the user to
+This module provides a field formatter for image fields that allows the user to
 select between three different image styles depending on the proportions of the
 original image.
 If the image is more or less squared (you can set a looseness in pixels) you
@@ -10,4 +10,4 @@ Configuration
 =============
 - Create the styles for the wider image, the higher and the squared one.
 - Manage the field display settings for your image field, select which image style
-you would like to use for each proportion and the looseness for the squard ones.
+you would like to use for each proportion and the looseness for the squared ones.

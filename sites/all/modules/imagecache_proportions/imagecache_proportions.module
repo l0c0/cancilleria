@@ -2,7 +2,7 @@
 
 /**
  * @file
- * CCK formatter for image fields that allows the user to select between 3
+ * Field formatter for image fields that allows the user to select between 3
  * different image styles depending on the proportions of the original
  * image uploaded. One style would be squared for more or less squared images,
  * another for wider images and the last one for taller images.
@@ -24,6 +24,19 @@ function imagecache_proportions_field_formatter_info() {
         'looseness' => 0,
         'enable_link' => '',
         'modal_style' => '',
+        'colorbox' => array(
+          'colorbox_image_style' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+        ),
+        'shadowbox' => array(
+          'image_link' => '',
+          'gallery' => '',
+          'compact' => '',
+          'title' => ''
+        ),
       ),
       'description' => t('Display the image in horizontal if it is more wide than high or in vertical if it is more high than wide.'),
     ),
@@ -33,7 +46,7 @@ function imagecache_proportions_field_formatter_info() {
 /**
  * Implements hook_field_formatter_settings_form().
  */
-function imagecache_proportions_field_formatter_settings_form($field, $instance, $view_mode) {
+function imagecache_proportions_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
   $display = $instance['display'][$view_mode];
   $settings = $display['settings'];
   $form = array();
@@ -93,14 +106,29 @@ function imagecache_proportions_field_formatter_settings_form($field, $instance,
     '#default_value' => $settings['enable_link'],
   );
 
-  if (module_exists('colorbox') || module_exists('shadowbox')) {
-    $form['modal_style'] = array(
-      '#type' => 'select',
-      '#title' => t('Select the modal style'),
-      '#description' => t('Style used when the image is opened in a modal popup.'),
-      '#options' => $options,
-      '#default_value' => $settings['modal_style'],
+  if (module_exists('shadowbox')) {
+    $form['shadowbox'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Shadowbox options'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name$="[settings_edit_form][settings][enable_link]"]' => array('value' => 'shadowbox'),
+         )
+       ),
     );
+    $form['shadowbox'] += imagecache_proportions_shadowbox_form($field, $instance, $view_mode, $form, $form_state);
+  }
+  if (module_exists('colorbox')) {
+    $form['colorbox'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Colorbox options'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name$="[settings_edit_form][settings][enable_link]"]' => array('value' => 'colorbox'),
+        )
+      ),
+    );
+    $form['colorbox'] += imagecache_proportions_colorbox_form($field, $instance, $view_mode, $form, $form_state);
   }
   return $form;
 }
@@ -120,8 +148,29 @@ function imagecache_proportions_field_formatter_view($entity_type, $entity, $fie
   if (empty($items)) {
     return;
   }
-  
+
   $settings = $display['settings'];
+
+  if (module_exists('shadowbox') && $settings['enable_link'] == 'shadowbox') {
+    $shadowbox_enabled_path = _shadowbox_activation() && variable_get('shadowbox_enabled', TRUE);
+    switch ($settings['shadowbox']['gallery']) {
+      case 'page':
+        $gallery_id = 'gallery';
+        break;
+      case 'field':
+        $gallery_id = $field['field_name'];
+        break;
+      case 'nid':
+        $info = entity_get_info($entity_type);
+        $id = $info['entity keys']['id'];
+        $gallery_id = "{$entity_type}-{$entity->$id}";
+        break;
+      default:
+        $gallery_id = "";
+        break;
+    }
+  }
+
   foreach ($items as $delta => $item) {
     $extra = array();
     $theme = 'image_formatter';
@@ -143,14 +192,39 @@ function imagecache_proportions_field_formatter_view($entity_type, $entity, $fie
         break;
       case 'colorbox':
         $theme = 'colorbox_image_formatter';
-        $extra['#colorbox_node_style'] = $settings[$proportions];
-        $extra['#colorbox_image_style'] = $settings['modal_style'];
+        $settings['colorbox']['colorbox_node_style'] = $settings[$proportions];
+        $extra['#display_settings'] = $settings['colorbox'];
+        $extra['#entity'] = $entity;
+        $extra['#entity_type'] = $entity_type;
         break;
       case 'shadowbox':
+        switch ($settings['shadowbox']['title']) {
+          case 'alt':
+            $title = $item['alt'];
+            break;
+          case 'title':
+            $title = $item['title'];
+            break;
+          case 'node':
+            $title = $entity->title;
+            break;
+          default:
+            $title = '';
+            break;
+        }
         $theme = 'shadowbox_formatter';
         $extra['#itemid'] = $delta;
         $extra['#image_style'] = $settings[$proportions];
-        $extra['#attached']['library'][] = array('shadowbox', 'shadowbox');
+        $extra['#image_link'] = $settings['shadowbox']['image_link'];
+        $extra['#title'] = $title;
+        $extra['#gallery'] = $gallery_id;
+        $extra['#compact'] = $settings['shadowbox']['compact'];
+        if ($shadowbox_enabled_path) {
+          $extra['#attached']['library'][] = array('shadowbox', 'shadowbox');
+        }
+        break;
+      default:
+        $extra['#image_style'] = $settings[$proportions];
         break;
     }
     $element[$delta] = array(
@@ -179,4 +253,30 @@ function imagecache_proportions_calculate_proportions($width, $height, $loosenes
   if ($height > $width) {
     return 'vertical_preset';
   }
+}
+
+/**
+ * Retrieves and processes colorbox formatter settings.
+ */
+function imagecache_proportions_colorbox_form($field, $instance, $view_mode, $form, &$form_state) {
+  $instance['display'][$view_mode]['settings'] = $instance['display'][$view_mode]['settings']['colorbox'];
+  $form = colorbox_field_formatter_settings_form($field, $instance, $view_mode, $form, $form_state);
+  $form['colorbox_caption_custom']['#states']['visible'] = array(
+    ':input[name$="[settings_edit_form][settings][colorbox][colorbox_caption]"]' => array('value' => 'custom'),
+  );
+  $form['colorbox_gallery_custom']['#states']['visible'] = array(
+    ':input[name$="[settings_edit_form][settings][colorbox][colorbox_gallery]"]' => array('value' => 'custom'),
+  );
+  unset($form['colorbox_node_style']);
+  return $form;
+}
+
+/**
+ * Retrieves and processes shadowbox formatter settings.
+ */
+function imagecache_proportions_shadowbox_form($field, $instance, $view_mode, $form, &$form_state) {
+  $instance['display'][$view_mode]['settings'] = $instance['display'][$view_mode]['settings']['shadowbox'];
+  $form = shadowbox_field_formatter_settings_form($field, $instance, $view_mode, $form, $form_state);
+  unset($form['image_style']);
+  return $form;
 }
