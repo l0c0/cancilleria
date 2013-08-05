@@ -542,11 +542,11 @@ li p, .Cancilleria_postcontent li p, .Cancilleria_blockcontent li p
    z-index: auto !important;
 }
 
-.responsive .Cancilleria_header
+/* .responsive .Cancilleria_header
 {
    background-image: url('images/header.jpg');
    background-position: center center;
-}
+}*/
 
 .Cancilleria_header > .region, .Cancilleria_header > .block
 {
@@ -3436,10 +3436,11 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 .Primera_Pagina .Cancilleria_blockcontent { width:960px;}
 .Primera_Pagina .layout-4a-fastlinks-content{width:960px !important;}
 
+/*
 .responsive .Primera_Pagina .Cancilleria_postcontent { width:auto;}
 .responsive .Primera_Pagina .Cancilleria_blockcontent { width:auto;}
 .responsive .Primera_Pagina .layout-4a-fastlinks-content{width:auto !important;}
-
+*/
 
 
 .field.field-name-field-image-full-description.field-type-text-long.field-label-hidden {
@@ -3515,7 +3516,7 @@ padding: 0 10px;
   margin-left: 50%;
 }
 
-
+/*
 .responsive #Pagina_Inicial .Noticias_Diapositivas .views-field-title {
   width: auto;
 }
@@ -3556,17 +3557,21 @@ padding: 0 10px;
   height: 100px;
   width: auto;
 }
+*/
 .Servibanca {
-  background: url("/sites/all/themes/Cancilleria/images/servibanca.png") no-repeat scroll 1px 0 / contain  transparent;
+  background: url("/sites/all/themes/Cancilleria/images/servibanca.png") no-repeat scroll 1px 0 transparent;
   padding-left: 15px;
+  background-size: 10px;
 }
 .PSE {
-  background: url("/sites/all/themes/Cancilleria/images/pse.png") no-repeat scroll 1px 0 / contain  transparent;
+  background: url("/sites/all/themes/Cancilleria/images/pse.png") no-repeat scroll 1px 0 transparent;
   padding-left: 20px;
+  background-size: 14px;
 }
 .Citibank {
-  background: url("/sites/all/themes/Cancilleria/images/citibank.png") no-repeat scroll 1px 0 / contain  transparent;
+  background: url("/sites/all/themes/Cancilleria/images/citibank.png") no-repeat scroll 1px 0 transparent;
   padding-left: 60px;
+  background-size: 50px;
 }
 
 .BotonAzul{
@@ -3595,6 +3600,35 @@ padding: 0 10px;
   font-weight: bold;
 }
 .BotonAzul td + td + td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_der.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.BotonAzul2{
+  border-collapse: collapse;
+  margin: 20px 0 !important;
+  height: 25px;
+}
+.BotonAzul2 td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_izq.jpg") no-repeat scroll 0 0 transparent;
+  width: 8px;
+}
+.BotonAzul2 td + td {
+  background: url("/sites/all/themes/Cancilleria/images/boton_borde_medio.jpg") repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  max-width: 400px;
+  min-width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+.BotonAzul2 td + td a {
+/* background: url("/sites/all/themes/Cancilleria/images/boton_borde_medio.jpg") repeat scroll 0 0 transparent; */
+  color: #FFFFFF !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+.BotonAzul2 td + td + td {
   background: url("/sites/all/themes/Cancilleria/images/boton_borde_der.jpg") no-repeat scroll 0 0 transparent;
 }
 /* TRAMITES Y SERVICIOS*/
@@ -3626,7 +3660,7 @@ padding: 0 10px;
 }
 .TablaAdjuntos td + td{
   background: none;
-  width: 20px;
+  width:16px;
 }
 .TablaAdjuntos img {
   display: list-item;
@@ -3703,6 +3737,28 @@ ui-accordion-header {
 .EnLinea tr td {
   background: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/registro_firma_enlinea.png") no-repeat scroll 0 0 transparent;
   padding-top: 65px;
+}
+.OnLine tr td {
+  background: url("/sites/default/files/tramites_servicios/apostilla_legalizacion/imagenes/registro-firma-enlinea.png") no-repeat scroll 0 0 transparent;
+  padding-top: 65px;
+}
+h3.views-accordion-tramites_servicios-page_128-header {
+  background: url("/sites/default/files/tramites_servicios/fondo_texto_solo.png") no-repeat scroll 0 10px transparent;
+  color: #808080;
+  font-size: 17px;
+  font-weight: 600;
+  padding-left: 15px;
+  margin-top: 15px;
+  height: 30px;
+}
+h3.views-accordion-visas_english-page_1-header {
+  background: url("/sites/default/files/tramites_servicios/fondo_texto_solo.png") no-repeat scroll 0 10px transparent;
+  color: #808080;
+  font-size: 17px;
+  font-weight: 600;
+  padding-left: 15px;
+  margin-top: 15px;
+  height: 30px;
 }
 .DebeTenerEnCuenta {
   background: url("/sites/default/files/tramites_servicios/fondo_texto_solo.png") no-repeat scroll 0 10px transparent;
@@ -3802,6 +3858,23 @@ margin-top: -5px !important;
   padding-right: 0px;
 }
 */
+.beautytips.beautytips-module-processed.bt-active.bt-active > strong {
+  text-decoration: underline;
+  font-weight: bolder;
+  color: #2C139A;
+}
+a.beautytips{
+  width: 104px;
+}
+.ui-widget {
+  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+}
+.views-field-field-miniatura-activa {
+  opacity: 0.7;
+}
+.views-field-field-miniatura-activa:hover {
+  opacity: 1;
+}
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
