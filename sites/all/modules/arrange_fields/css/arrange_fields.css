@@ -1,9 +1,20 @@
 
+/* Solution to strange resizing issue, 
+   thanks to spamsammy, here:
+   https://drupal.org/node/1241750#comment-7147666
+*/
+form.arrange-fields-container * {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+
 .arrange-fields-container {
  position: relative;
  border: 2px solid #bbb;
  background: url("grid1.png"); 
- min-height: 200px;
+ min-height: 25px;
 }
 
 .arrange-fields-container .draggable-form-item {

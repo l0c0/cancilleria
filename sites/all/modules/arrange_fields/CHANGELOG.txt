@@ -4,6 +4,25 @@ Changelog for Arrange Fields
 For Drupal 7.x
 ===================
 
+2013-07-31
+ Fixed strange CSS issue which caused textareas to resize in certain themes on save.
+ Thanks to spamsammy, here: https://drupal.org/node/1241750#comment-7147666
+ 
+ Added extra handling for date field (does not add resizable handlers if its in a date field)
+ 
+ Added instructions to click the Save position data button twice to make sure the form's height
+ is calculated correctly.
+  
+ 
+2013-02-06
+ Fixed issue where added form_id's were not being trimmed, and \r was added
+ to the end of the settings line for Windows users.
+
+
+-----------------
+Previous commits: 
+-----------------
+
 2013-01-29
  Fixed issue #1442932.
  
@@ -11,10 +30,6 @@ For Drupal 7.x
  help line up text fields when needed to resize them.
 
  Added checks to keep notices from showing up.
-
------------------
-Previous commits: 
------------------
 
 5-21-2012
  Fix for this bug: http://drupal.org/node/1473166.  The issue is that

@@ -31,6 +31,7 @@ function arrange_fields_menu() {
     "type" => MENU_CALLBACK,
   );  
   
+  // Hook so it fits in nicely with content types tabs.  
   $items["admin/structure/types/arrange-fields"] = array(
     "title" => "Arrange form fields",
     "page callback" => "arrange_fields_display_main",
@@ -38,6 +39,9 @@ function arrange_fields_menu() {
     "type" => MENU_LOCAL_TASK,
     "weight" => 5,
   );
+   
+   
+
    
   // Admin settings menu...
   $items["admin/config/arrange-fields"] = array(
@@ -78,6 +82,7 @@ function arrange_fields_menu() {
   );
   
   
+  // Create men hook so it ties in nicely with content types tabs
   $items["admin/structure/types/manage/%node_type/arrange-fields"] = array(
     "title" => "Arrange fields",
     "page callback" => "arrange_fields_display_form",
@@ -97,6 +102,19 @@ function arrange_fields_menu() {
     "type" => MENU_LOCAL_TASK,
     "weight" => 3,
   );
+    
+  /*  
+   * Not working right now, but I will leave this in place-- maybe someday!
+  // Hook so it fits in nicely with Profile 2 tabs.  
+  $items["admin/structure/profiles/manage/%profile2_type/arrange-fields"] = array(
+    "title" => "Arrange fields",
+    "page callback" => "arrange_fields_display_profile2_form",
+    "page arguments" => array(4),
+    "access arguments" => array("administer arrange fields"),
+    "type" => MENU_LOCAL_TASK,
+    "weight" => 3,
+  );        
+    */
     
   // Menu hooks for the two popups used with drupal and webform fields...
   $items["arrange-fields/popup-edit-field"] = array(
@@ -474,7 +492,7 @@ function arrange_fields_display_main() {
     $rtn .= t("Additional form_id's you specified on the Settings tab...");
     $rtn .= "<ul>";
     foreach ($temp as $form_id) {
-      $rtn .= "<li>" . l($form_id, "arrange-fields/other/$form_id") . "</li>";
+      $rtn .= "<li>" . l(trim($form_id), "arrange-fields/other/" . trim($form_id)) . "</li>";
     }
     $rtn .= "</ul>";
     $rtn .= "<div class='arrange-fields-other-form-caveat'>";
@@ -842,6 +860,7 @@ function arrange_fields_render_dialogs() {
  */
 function arrange_fields_add_draggable_wrappers(&$form, $form_type, $disable_buttons = FALSE) {
 
+    
   // Figure out just what are the fields for this form.
   if ($form_type == "webform") {    
     // If we are dealing with a webform, then we need to make sure
@@ -991,6 +1010,11 @@ function arrange_fields_add_draggable_wrappers(&$form, $form_type, $disable_butt
       $css_class .= " arrange-fields-vertical-tabs-wrapper ";
     }
     
+    // If we are dealing with date fields, add extra classes there too.
+    // Let's also add in a class for whatever element type this is.
+    $css_class .= " arrange-fields-element-type-$element_type ";
+    
+    
     
     // Set the prefix and suffix for this field such that we 
     // wrap a div around it which the jquery can lock onto later to
@@ -1004,11 +1028,11 @@ function arrange_fields_add_draggable_wrappers(&$form, $form_type, $disable_butt
     if (!isset($element["#pre_render"])) {
       $element["#pre_render"] = array();
     }
-    
+       
     // We need to use this function to add in our prefix and suffix.  This fixes
     // a bug with the latest Webform module.
     $element["#pre_render"][] = "arrange_fields_pre_render";
-    
+        
     // If the field is a button, and we have chosen to disable buttons, then
     // disable this one.
     if ($element_type == "submit" || $element_type == "button") {
@@ -1035,7 +1059,6 @@ function arrange_fields_add_draggable_wrappers(&$form, $form_type, $disable_butt
     // Indicate that we have successfully added all the necessary wrappers 
     // to this element.  This is so we don't do it twice.
     $element["#arrange_fields_added_wrappers"] = TRUE;
-     
   }
   
   // We set this global so later on we can easily tell if we've already performed this opperation.
@@ -1057,19 +1080,19 @@ function arrange_fields_pre_render($element) {
   if (!isset($element["#prefix"])) $element["#prefix"] = "";  
   if (!isset($element["#suffix"])) $element["#suffix"] = "";  
   
- // if ($element["#type"] == "container") dpm($element);
+ 
   
   // If the type is a managed_file, let's take away the upload button, as it can cause
   // weird problems with Arrange Fields after uploading.  This is due to some kind of
   // conflict with the CSS, but I have not be able to figure that out yet.
-  if ($element["#type"] == "managed_file") {
+  if (af_get($element["#type"]) == "managed_file") {
 
     if (isset($element["upload_button"])) {
    //   unset($element["upload_button"]);
     $element["upload_button"]["#executes_submit_callback"] = FALSE;
     }
   }
-  
+ 
   if (isset($element["#af_prefix"])) {
     $element["#prefix"] .= $element["#af_prefix"] ;
     $element["#suffix"] .= $element["#af_suffix"] ;
@@ -1175,12 +1198,17 @@ function arrange_fields_get_included_module_files() {
   
   $rtn = "";
   
-  $arr = get_included_files();
+  $arr = get_included_files();  
   foreach ($arr as $file) {
+    /**
+     * This was causing this system to not work correctly, so I am no longer
+     * going to try to get rid of the basepath.
+     */
     // Get rid of the basepath information.
-    $temp = explode($GLOBALS["base_path"], $file);
-    $file = $temp[1];
+    //$temp = explode($GLOBALS["base_path"], $file);
+    //$file = $temp[1];
     
+
     // Skip anything that doesn't have "modules" in the name.
     if (!strstr($file, "modules/")) continue;
     
@@ -1199,7 +1227,6 @@ function arrange_fields_get_included_module_files() {
     
     // If the result doesn't have a "." in it, skip it.
     if (!strstr($file, ".")) continue;
-    
     
     $rtn .= "&nbsp; &nbsp; &nbsp; <em>$file</em> <br>";
   }
@@ -1237,7 +1264,8 @@ function arrange_fields_form_alter(&$form, &$form_state, $form_id) {
     // way of the fields.
     unset($form["#submit"]);
     
-    $form["#attributes"]["class"] = "arrange-fields-container";
+    $form["#attributes"]["class"] = "arrange-fields-container";    
+    
             
     if (!af_get($GLOBALS["arrange_fields_added_wrappers_" . $form["form_id"]["#value"]])) {
       arrange_fields_add_draggable_wrappers($form, $form_type, TRUE);
@@ -1616,14 +1644,19 @@ function arrange_fields_position_form($form_state1, $form_state2, $form_id, $for
   
   $form["save"] = array(
     "#type" => "submit",
-    "#value" => "Save position data",
+    "#value" => t("Save position data *"),
     "#attributes" => array("onClick" => "return arrangeFieldsSavePositions()"),
   );
   
   $form["reset"] = array(
     "#type" => "button",
-    "#value" => "Reset position data",
+    "#value" => t("Reset position data"),
     "#attributes" => array("onClick" => "return arrangeFieldsConfirmReset()"),
+  );
+  
+  $form["extra_markup_help"] = array(
+    "#markup" => "<div style='font-size: 0.9em;'>" . t("* To ensure the correct hight of the form is saved, you may need
+                    to save position data twice, once you have finished arranging fields.") . "</div>",
   );
   
   

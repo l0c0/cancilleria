@@ -81,6 +81,7 @@ Drupal.behaviors.arrangeFieldsStartup = {
 */
 function arrangeFieldsAddDraggableAndResizable() {
 
+
   // This actually makes the draggable items draggable.
   jQuery(".arrange-fields-container .draggable-form-item").draggable({
     stop: function(event, ui) { arrangeFieldsRepositionToGrid(false); },
@@ -91,6 +92,15 @@ function arrangeFieldsAddDraggableAndResizable() {
     stop:  function(event, ui) {arrangeFieldsDragging = false;}
   });
 
+  jQuery(".arrange-fields-container fieldset.captcha").draggable({
+    stop: function(event, ui) { arrangeFieldsRepositionToGrid(false); },
+    containment: ".arrange-fields-container", 
+    scroll: true,
+    grid : [gridWidth,gridWidth],
+    start: function(event, ui) {arrangeFieldsDragging = true;},
+    stop:  function(event, ui) {arrangeFieldsDragging = false;}
+  });
+  
   
   arrangeFieldsStartupHeight = 0;
   arrangeFieldsGreatestHeight = 0; 
@@ -100,8 +110,8 @@ function arrangeFieldsAddDraggableAndResizable() {
     snapWidth = gridWidth;
   }
   
-  jQuery(".arrange-fields-container .draggable-form-item:not(.draggable-form-item-fieldset, .arrange-fields-vertical-tabs-wrapper) textarea").resizable({grid: [snapWidth,snapWidth]});
-  jQuery(".arrange-fields-container .draggable-form-item:not(.draggable-form-item-fieldset, .arrange-fields-vertical-tabs-wrapper) .form-text").resizable({
+  jQuery(".arrange-fields-container .draggable-form-item:not(.draggable-form-item-fieldset, .arrange-fields-vertical-tabs-wrapper, .arrange-fields-element-type-container) textarea").resizable({grid: [snapWidth,snapWidth]});
+  jQuery(".arrange-fields-container .draggable-form-item:not(.draggable-form-item-fieldset, .arrange-fields-vertical-tabs-wrapper, .arrange-fields-element-type-container) .form-text").resizable({
         handles: 'e',
         grid: [snapWidth,snapWidth]
   });  
@@ -195,12 +205,16 @@ function arrangeFieldsSavePositions() {
    // But, only do this if we are NOT within a fieldset!
    if (jQuery(element).hasClass("draggable-form-item-fieldset") == false) {
      var test = jQuery(element).find("textarea");
+
      width = jQuery(test).width();
      height = jQuery(test).height();
+     
+     
      if (width != null) inner_element_type = "textarea";
      
      if (width == null) {
        test = jQuery(element).find("input:text");       
+           
        width = jQuery(test).width();
        height = jQuery(test).height();
        if (width != null) inner_element_type = "input";
@@ -239,19 +253,17 @@ function arrangeFieldsSavePositions() {
    }
    
    dataString += ";";
-   
+    
    var bottom = parseInt(top) + jQuery(element).height();
    if (bottom > maxBottom) {
      maxBottom = bottom;
    }
    
   });
-   
+
   // This maxBottom value tells us how tall the container needs to be on the node/edit page
   // for this form.
   dataString += "~~maxBottom~~," + maxBottom + "px";
-  //console.log(dataString);
-  //return false;
   jQuery("#edit-arrange-fields-position-data").val(dataString);
 
 }
@@ -275,7 +287,9 @@ function arrangeFieldsPopupEditField(type, field) {
 
 function arrangeFieldsClosePopup() {
   // Closes the popup and saves the form in the opener window.
+
   opener.arrangeFieldsSavePositions();
+  
   opener.document.getElementById("arrange-fields-position-form").submit();
   window.close();
 }
