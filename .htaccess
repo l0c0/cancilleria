@@ -139,4 +139,3 @@ DirectoryIndex index.php index.html index.htm
 </IfModule>
 RewriteCond %{HTTP_HOST} ^cancilleria.gov.co$
 RewriteRule ^/?$ "http\:\/\/www\.cancilleria\.gov\.co\/" [R=301,L]
-

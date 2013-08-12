@@ -4,16 +4,12 @@
 *.gzip
 *.bzip2
 *.zip
-.ftpquota
 error_log
-sites/*/settings*.php
+sites/*/settings.php
 
 # Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
-/cache
-/cgi-bin
-/tmp
-/w1
-/w2
-
+cache/
+cgi-bin/
+tmp/
+sites/*/files/
+sites/*/private/
