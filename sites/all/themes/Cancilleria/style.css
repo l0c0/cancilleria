@@ -1263,7 +1263,7 @@ ul.Cancilleria_vmenu>li:first-child
 
 ul.Cancilleria_vmenu>li>a:hover, ul.Cancilleria_vmenu>li>a.active:hover
 {
-   background: #2C139A;;
+   background: #2C139A;
    padding:0 5px;
    margin:0 auto;
 }
@@ -1277,7 +1277,6 @@ ul.Cancilleria_vmenu>li>a:hover, ul.Cancilleria_vmenu>li>a.active:hover
 ul.Cancilleria_vmenu a:hover, ul.Cancilleria_vmenu a.active:hover
 {
    color: #FFFFFF;
-/*   color: #15295B;*/
 }
 
 ul.Cancilleria_vmenu>li>a.active:hover>span.border-top, ul.Cancilleria_vmenu>li>a.active:hover>span.border-bottom
@@ -3874,6 +3873,23 @@ a.beautytips{
 }
 .views-field-field-miniatura-activa:hover {
   opacity: 1;
+}
+.DivCartaTratoDigno {
+  background: url("/sites/default/files/themes/fondo-carta-trato-digno_01.jpg") repeat-x scroll 0 0 #FFFFFF;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.TablaCartaTratoDigno td {
+  margin-right: 20px;
+  padding: 50px;
+}
+.TablaCartaTratoDigno h2 {
+  color: #000000;
+  font-weight: bold;
+  line-height: 8px;
+}
+.TablaCartaTratoDigno p {
+  max-width: 700px;
 }
 /* End Additional CSS Styles */
 
