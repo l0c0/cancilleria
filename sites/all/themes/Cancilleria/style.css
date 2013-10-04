@@ -143,7 +143,10 @@ ul.Cancilleria_vmenu a
    font-variant: normal;
    color: #FFFFFF;
 }
-
+.Cancilleria_postcontent .anchor
+{
+   color: #000000;
+}
 .Cancilleria_postcontent a:visited, .Cancilleria_postcontent a.visited
 {
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -3852,11 +3855,15 @@ margin-top: -5px !important;
   margin-left: 0;
   padding: 0 !important;
 }
-.negocios .views-row-last .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active .field-content {
+.negocios .views-row-last .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active .field-content{
   padding-left: 0px;
   padding-right: 0px;
 }
 */
+.view-preguntas-frecuentes .field-content{
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .beautytips.beautytips-module-processed.bt-active.bt-active > strong {
   text-decoration: underline;
   font-weight: bolder;
@@ -3890,6 +3897,42 @@ a.beautytips{
 }
 .TablaCartaTratoDigno p {
   max-width: 700px;
+}
+
+/* Atención al Ciudadano */
+.panel-col-seventy .pane-title {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  color: #7D7D7D !important;
+  font-size: 36px !important;
+  margin-left: 20px;
+  padding: 2px !important;    
+}
+
+.panel-col-thirty .panel-pane.pane-menu-tree.pane-active, .panel-col-thirty .panel-pane.pane-custom.pane-1 {
+  background: none repeat scroll 0 0 white;
+  margin-right: 20px;
+}
+
+.panel-header .pane-title {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  color: #000000 !important;
+  float: left;
+  font-size: 36px !important;
+  height: 80px;
+  line-height: 30px;
+  margin-left: 20px;
+  vertical-align: middle;
+  width: 25%;
+}
+
+.panel-header .pane-content {
+  margin-right: 20px;
+}
+
+.ui-accordion h3.ui-accordion-header {
+  padding-left: 2.2em;
 }
 /* End Additional CSS Styles */
 
