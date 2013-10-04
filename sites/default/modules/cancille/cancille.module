@@ -1,0 +1,314 @@
+<?php
+function cancille_menu() {
+
+  $items['cancille/%node'] = array(
+    'title' => 'CANCILLE JS CALLBACK',
+    'page callback' => 'cancille_page',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'cancille.pages.inc',
+  );
+    
+  return $items;
+}
+
+function cancille_block_info() {
+  $blocks = array();
+ 
+  $blocks['cancille_apostilla_legalizacion'] = array(
+    'info' => 'cancille',
+  );
+ 
+  return $blocks;
+}
+ 
+
+function cancille_block_view($delta='')
+{
+  switch($delta) {
+    case 'cancille_apostilla_legalizacion':
+      $block['subject'] = null; // Most forms don't have a subject 
+      $block['content'] = drupal_get_form('cancille_apostilla_legalizacion_form');
+      break;
+   }
+   return $block;
+ }
+
+function cancille_apostilla_legalizacion_form($form, &$form_state) {
+  $form['pais'] = array( 
+   '#type' =>'select', 
+   '#title' => 'Pais donde se presentara el documento', 
+   '#options' => array(
+'' => '- Seleccionar -',
+107 => 'Afganistan',
+1 => 'Albania',
+2 => 'Alemania',
+3 => 'Andorra',
+108 => 'Angola',
+4 => 'Antigua y Barbuda',
+109 => 'Arabia Saudi',
+110 => 'Argelia',
+5 => 'Argentina',
+6 => 'Armenia',
+7 => 'Australia',
+8 => 'Austria',
+9 => 'Azerbaiyan',
+10 => 'Bahamas',
+11 => 'Bahrein',
+111 => 'Bangladesh',
+12 => 'Barbados',
+13 => 'Belarus',
+14 => 'Belgica',
+15 => 'Belice',
+112 => 'Benin',
+113 => 'Bermudas',
+115 => 'Bolivia',
+16 => 'Bosnia y Herzegovina',
+17 => 'Botswana',
+114 => 'Brasil',
+18 => 'Brunei Darussalam',
+19 => 'Bulgaria',
+116 => 'Burkina Faso',
+117 => 'Burundi',
+118 => 'Butan',
+20 => 'Cabo Verde',
+119 => 'Camboya',
+120 => 'Camerun',
+121 => 'Canada',
+122 => 'Catar',
+123 => 'Chad',
+124 => 'Chile',
+21 => 'China (Hong Kong)',
+22 => 'China (Macao)',
+23 => 'Chipre',
+24 => 'Colombia',
+125 => 'Comoras',
+126 => 'Congo',
+127 => 'Costa de Marfil',
+25 => 'Costa Rica',
+26 => 'Croacia',
+128 => 'Cuba',
+27 => 'Dinamarca',
+28 => 'Dominica',
+129 => 'Dubai',
+29 => 'Ecuador',
+130 => 'Egipto',
+30 => 'El Salvador',
+131 => 'Emiratos arabes Unidos',
+132 => 'Eritrea',
+31 => 'Eslovaquia',
+32 => 'Eslovenia',
+33 => 'España',
+34 => 'Estados Unidos de America',
+35 => 'Estonia',
+133 => 'Etiopia',
+36 => 'Ex Republica Yugoslava de Macedonia',
+37 => 'Federacion de Rusia',
+38 => 'Fiji',
+134 => 'Filipinas',
+39 => 'Finlandia',
+40 => 'Francia',
+135 => 'Gabon',
+136 => 'Gambia',
+41 => 'Georgia',
+137 => 'Ghana',
+42 => 'Granada',
+43 => 'Grecia',
+138 => 'Guam',
+139 => 'Guatemala',
+142 => 'Guinea',
+140 => 'Guinea Bissau',
+141 => 'Guinea Ecuatorial',
+143 => 'Guyana',
+144 => 'Haiti',
+44 => 'Honduras',
+45 => 'Hungria',
+46 => 'India',
+145 => 'Indonesia',
+146 => 'Irak',
+147 => 'Iran',
+47 => 'Irlanda',
+48 => 'Islandia',
+49 => 'Islas Cook',
+50 => 'Islas Marshall',
+148 => 'Islas Pitcairn',
+149 => 'Islas Salomon',
+51 => 'Israel',
+52 => 'Italia',
+150 => 'Jamaica',
+53 => 'Japon',
+151 => 'Jordania',
+54 => 'Kazajstan',
+152 => 'Kenia',
+55 => 'Kirguistan',
+153 => 'Kiribati',
+154 => 'Kosovo',
+155 => 'Kuwait',
+156 => 'Laos',
+56 => 'Lesotho',
+57 => 'Letonia',
+157 => 'Libano',
+58 => 'Liberia',
+158 => 'Libia',
+59 => 'Liechtenstein',
+60 => 'Lituania',
+61 => 'Luxemburgo',
+159 => 'Macedonia',
+160 => 'Madagascar',
+161 => 'Malasia',
+62 => 'Malawi',
+162 => 'Maldivas',
+163 => 'Mali',
+63 => 'Malta',
+164 => 'Marianas del Norte',
+64 => 'Mauricio',
+165 => 'Mauritania',
+65 => 'Mexico',
+166 => 'Micronesia',
+167 => 'Moldavia',
+66 => 'Monaco',
+67 => 'Mongolia',
+68 => 'Montenegro',
+168 => 'Mozambique',
+169 => 'Myanmar (antes Birmania)',
+69 => 'Namibia',
+170 => 'Nauru',
+171 => 'Nepal',
+70 => 'Nicaragua',
+172 => 'Niger',
+173 => 'Nigeria',
+71 => 'Niue',
+72 => 'Noruega',
+73 => 'Nueva Zelandia',
+74 => 'Oman',
+75 => 'Paises Bajos',
+174 => 'Pakistan',
+176 => 'Palau',
+175 => 'Palestina',
+76 => 'Panama',
+177 => 'Papua Nueva Guinea',
+178 => 'Paraguay',
+77 => 'Peru',
+78 => 'Polonia',
+79 => 'Portugal',
+80 => 'Reino Unido de Gran Bretaña e Irlanda del Norte',
+179 => 'Republica Centroafricana',
+81 => 'Republica Checa',
+82 => 'Republica de Corea',
+83 => 'Republica de Moldova',
+180 => 'Republica del Congo',
+181 => 'Republica Democratica del Congo (antiguo Zaire)',
+84 => 'Republica Dominicana',
+182 => 'Ruanda',
+85 => 'Rumania',
+183 => 'Sahara Occidental',
+86 => 'Saint Kitts y Nevis',
+87 => 'Samoa',
+88 => 'San Marino',
+89 => 'San Vicente y las Granadinas',
+90 => 'Santa Lucia',
+91 => 'Santo Tome y Principe',
+184 => 'Senegal',
+92 => 'Serbia',
+93 => 'Seychelles',
+185 => 'Sierra Leona',
+186 => 'Singapur',
+187 => 'Siria',
+188 => 'Somalia',
+94 => 'Sudafrica',
+189 => 'Sudan',
+95 => 'Suecia',
+96 => 'Suiza',
+97 => 'Suriname',
+98 => 'Swazilandia',
+190 => 'Tailandia',
+191 => 'Taiwan o Formosa (Republica Nacionalista China)',
+192 => 'Tanzania',
+193 => 'Tayikistan',
+194 => 'Tibet (actualmente bajo soberania China)',
+195 => 'Timor Oriental (antiguamente ocupado por Indonesia)',
+196 => 'Togo',
+99 => 'Tonga',
+100 => 'Trinidad y Tabago',
+197 => 'Tunez',
+198 => 'Turkmenistan',
+101 => 'Turquia',
+199 => 'Tuvalu',
+102 => 'Ucrania',
+200 => 'Uganda',
+103 => 'Uruguay',
+104 => 'Uzbekistan',
+105 => 'Vanuatu',
+201 => 'Vaticano',
+106 => 'Venezuela',
+202 => 'Vietnam',
+203 => 'Wallis y Futuna',
+204 => 'Yemen',
+205 => 'Yibuti',
+207 => 'Zaire',
+206 => 'Zambia',
+208 => 'Zimbabue',
+    ), 
+  );
+  
+  $form['#prefix'] ='<div id="cancille-apostilla-legalizacion-wrapper">';
+  $form['#suffix'] ='</div>';
+  
+  $form['tipo'] = array( 
+   '#type' =>'select', 
+   '#title' => 'Tipo de documento', 
+   '#options' => array(
+     '' => '- Seleccionar -',
+     '5080' => 'Documentos de caracter civil',
+     '5081' => 'Documentos de educacion',
+     '5082' => 'Documentos de caracter religioso',
+     '5084' => 'Otro tipo de documentos',
+    ),
+  );
+
+  $form['submit'] = array(
+   '#type' =>'submit',
+   '#default_value' => t('Submit'),
+   '#attributes' => array('class' => array('cancille-apostilla-legalizacion-submit',)),
+   '#disabled' => TRUE,
+  );
+
+  $form['submit']['#ajax'] = array(
+   'wrapper' =>'cancille-apostilla-legalizacion-wrapper',
+   'callback' =>'cancille_apostilla_legalizacion_form_callback',
+   'progress' => array(
+     'type' =>'throbber',
+     'message' =>'',
+    ),
+  );
+  
+  $path = drupal_get_path('module','cancille');
+  
+  $form['#attached']['css'] = array(
+    $path .'/cancille.css',
+  );
+  
+  $form['#attached']['js'] = array(
+    $path .'/js/cancille.js',
+  );
+  
+  $form['markup'] = array(
+    '#markup' => '<div id="markup-node"></div>'
+  );
+  
+  return $form;
+}
+
+//function cancille_apostilla_legalizacion_form_validate($form, &$form_state){
+//
+//}
+//
+//function cancille_apostilla_legalizacion_form_submit($form, &$form_state) {
+//
+//}
+
+function cancille_apostilla_legalizacion_form_callback($form, $form_state) {
+  return $form;
+}
+?>

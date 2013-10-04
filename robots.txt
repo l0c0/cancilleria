@@ -44,10 +44,14 @@ Disallow: /comment/reply/
 Disallow: /filter/tips/
 Disallow: /node/add/
 Disallow: /search/
+Disallow: /user
+Disallow: /user/
 Disallow: /user/register/
 Disallow: /user/password/
+Disallow: /user/password
 Disallow: /user/login/
 Disallow: /user/logout/
+Disallow: /taxonomy/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
