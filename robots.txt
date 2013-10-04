@@ -52,6 +52,9 @@ Disallow: /user/password
 Disallow: /user/login/
 Disallow: /user/logout/
 Disallow: /taxonomy/
+Disallow: /tt_ss/
+Disallow: /pp_ss/
+Disallow: /en/pp_ss/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
