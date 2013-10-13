@@ -36,6 +36,7 @@ function cancille_block_view($delta='')
  }
 
 function cancille_apostilla_legalizacion_form($form, &$form_state) {
+/*
   $form['pais'] = array( 
    '#type' =>'select', 
    '#title' => 'Pais donde se presentara el documento', 
@@ -251,6 +252,7 @@ function cancille_apostilla_legalizacion_form($form, &$form_state) {
 208 => 'Zimbabue',
     ), 
   );
+*/
   
   $form['#prefix'] ='<div id="cancille-apostilla-legalizacion-wrapper">';
   $form['#suffix'] ='</div>';
@@ -310,5 +312,15 @@ function cancille_apostilla_legalizacion_form($form, &$form_state) {
 
 function cancille_apostilla_legalizacion_form_callback($form, $form_state) {
   return $form;
+}
+
+//Implements hook_node_view_alter()
+function cancille_node_view_alter(&$build) {
+  if(isset($build['#node'])) {
+    $node = $build['#node'];
+    if(!empty($node->nid)) {
+      $build['#contextual_links']['node'] = array('node', array($node->nid));
+    }
+  }
 }
 ?>

@@ -102,7 +102,7 @@ function options_form(&$form, &$form_state) {
 //@TODO validation
 //seems to be a bug?
 
-function options_validate($form, &$form_state) {
+function options_validate(&$form, &$form_state) {
 
   parent::options_validate($form, $form_state);
   $options = &$form_state['values']['style_options'];

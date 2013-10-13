@@ -1,9 +1,9 @@
 (function ($) {
 
   $(document).ready(function(){
-    $("#edit-pais").change(function(event) {
-      $('.form-item-tipo').css('display','block');
-    });
+//    $("#edit-pais").change(function(event) {
+//      $('.form-item-tipo').css('display','block');
+//    });
 
     $("#edit-tipo").change(function(event) {
 //      alert($("#edit-tipo").val());

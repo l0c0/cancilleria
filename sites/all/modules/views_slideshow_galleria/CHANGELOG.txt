@@ -1,6 +1,9 @@
 Views Slideshow: Galleria 7.x-3.x, xxxx-xx-xx
 -----------------------
-
+- #2055995 by gmclelland: Fixed Fullscreen double tap and fullscreen crop default values.
+- #1626760 by gmclelland | mattyoung: Fixed Undefined index errors.
+- #1766050 by sgabe | astanley86: Fixed Unable to hide caption.
+- #1743202 by FilmKnurd: Fixed History plugin not found.
 
 Views Slideshow: Galleria 7.x-3.1, 2012-07-28
 -----------------------

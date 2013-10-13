@@ -60,7 +60,6 @@ function views_slideshow_galleria_views_slideshow_slideshow_type_form(&$form, &$
     '#title' => t('Galleria options'),
     '#description' => t("These options affect the slideshow when it's in the !galleria mode. Please see the !documentation for more information.", array('!galleria' => l(t('Galleria'), 'http://galleria.io', array('attributes' => array('target' => 'blank'))), '!documentation' => l(t('documentation'), 'http://galleria.io/docs/1.2', array('attributes' => array('target' => '_blank'))))),
     '#collapsible' => TRUE,
-    '#collapsed' => !($view->options['mode'] == 'views_slideshow_galleria'),
   );
 
   $form['views_slideshow_galleria']['theme'] = array(
@@ -158,14 +157,14 @@ function views_slideshow_galleria_views_slideshow_slideshow_type_form(&$form, &$
     '#type' => 'checkbox',
     '#title' => t('Fullscreen crop'),
     '#description' => t('Sets how Galleria should crop when in fullscreen mode. See imageCrop for cropping options.'),
-    '#default_value' => $view->options['views_slideshow_galleria']['advanced']['fullscreen_crop'],
+    '#default_value' => $view->options['views_slideshow_galleria']['fullscreen_crop'],
     '#options' => $crop_options,
   );
   $form['views_slideshow_galleria']['fullscreen_double_tap'] = array(
     '#type' => 'checkbox',
     '#title' => t('Fullscreen double tap'),
     '#description' => t('This options listens for the double-tap event on touch devices and toggle fullscreen mode if it happens.'),
-    '#default_value' => $view->options['views_slideshow_galleria']['advanced']['fullscreen_double_tap'],
+    '#default_value' => $view->options['views_slideshow_galleria']['fullscreen_double_tap'],
   );
   $form['views_slideshow_galleria']['fullscreen_transition'] = array(
     '#type' => 'select',
@@ -253,13 +252,13 @@ function views_slideshow_galleria_views_slideshow_slideshow_type_form(&$form, &$
     '#type' => 'textfield',
     '#title' => t('Lightbox fade speed'),
     '#description' => t('When calling .showLightbox() the lightbox will animate and fade the images and captions. This value controls how fast they should fade in milliseconds.'),
-    '#default_value' => $view->options['views_slideshow_galleria']['lightboxFadeSpeed'],
+    '#default_value' => $view->options['views_slideshow_galleria']['lightbox_fade_speed'],
   );
   $form['views_slideshow_galleria']['lightbox_transition_speed'] = array(
     '#type' => 'textfield',
     '#title' => t('Lightbox transition speed'),
     '#description' => t('When calling .showLightbox() the lightbox will animate the white square before displaying the image. This value controls how fast it should animate in milliseconds.'),
-    '#default_value' => $view->options['views_slideshow_galleria']['lightboxTransitionSpeed'],
+    '#default_value' => $view->options['views_slideshow_galleria']['lightbox_transition_speed'],
   );
   $form['views_slideshow_galleria']['max_scale_ratio'] = array(
     '#type' => 'textfield',
@@ -321,7 +320,7 @@ function views_slideshow_galleria_views_slideshow_slideshow_type_form(&$form, &$
     '#description' => t("This defines what image index to show at first. If you have left the %history box checked, then a permalink will override this number.", array('%history' => t('History permalinks'))),
     '#default_value' => $view->options['views_slideshow_galleria']['show'],
   );
-  $form['views_slideshow_galleria']['show_iInfo'] = array(
+  $form['views_slideshow_galleria']['show_info'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show info'),
     '#description' => t('Set this to false if you do not wish to display the caption.'),

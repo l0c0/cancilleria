@@ -3934,6 +3934,12 @@ a.beautytips{
 .ui-accordion h3.ui-accordion-header {
   padding-left: 2.2em;
 }
+
+.pane-node .contextual-links-wrapper
+{
+  right: 35px;
+  z-index: 998;
+}
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/

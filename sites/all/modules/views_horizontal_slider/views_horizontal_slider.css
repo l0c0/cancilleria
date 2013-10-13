@@ -27,11 +27,12 @@ div.views_horizontal_slider div.item-list li{
 
 /*no padding right for the last item*/
 div.views_horizontal_slider div.item-list li.hslider-last {
-  margin-right:0px
+  margin-right:0px;
 }
 
 div.views_horizontal_slider div.item-list li img{
   z-index:100;
+  max-width:none;
 }
 
 /* This is the style for the active item on page load */
@@ -49,7 +50,7 @@ div.views_horizontal_slider div.item-list li.hslider-active{
 /* this is a sample with the TITLE field and and image, the views fields ar sorted title first then image to avoid z-index issues*/
 
 div.views_horizontal_slider div.item-list li .views-field-title {
-  z-index: 999;
+  z-index: 110;
   position: absolute;
   top:250px;
   font-size: 16px;

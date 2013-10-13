@@ -5,8 +5,8 @@
  */
 
 /**
-  * Implementation of views_plugin_style().
-  */
+ * Implementation of views_plugin_style().
+ */
 
 class views_nivo_slider_style_plugin extends views_plugin_style {
 
@@ -14,22 +14,21 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
     $options = parent::option_definition();
     unset($options['grouping']);
 
-    $options['nivo_version']          = array('default' => '2.7.x');
-    $options['imagefield_preset']     = array('default' => '');
-    $options['style']                 = array('default'=> 'default');
-    $options['effect']                = array('default'=> 'random');
-    $options['slices']                = array('default'=> '15');
-    $options['animSpeed']             = array('default'=> '500');
-    $options['pauseTime']             = array('default'=> '3000');
-    $options['directionNav']          = array('default'=> 'true');
-    $options['directionNavHide']      = array('default'=> 'true');
-    $options['controlNav']            = array('default'=> 'disabled');
-    $options['controlNavThumbsField'] = array('default'=> '');
-    $options['controlNavThumbsIC']    = array('default'=> '');
-    $options['keyboardNav']           = array('default'=> 'true');
-    $options['pauseOnHover']          = array('default'=> 'true');
-    $options['manualAdvance']         = array('default'=> 'false');
-    $options['captionOpacity']        = array('default'=> '0.8');
+    $options['nivo_version'] = array('default' => '2.7.x');
+    $options['style'] = array('default' => 'default');
+    $options['effect'] = array('default' => 'random');
+    $options['slices'] = array('default' => '15');
+    $options['animSpeed'] = array('default' => '500');
+    $options['pauseTime'] = array('default' => '3000');
+    $options['directionNav'] = array('default' => 'true');
+    $options['directionNavHide'] = array('default' => 'true');
+    $options['controlNav'] = array('default' => 'disabled');
+    $options['controlNavThumbsField'] = array('default' => '');
+    $options['controlNavThumbsIC'] = array('default' => '');
+    $options['keyboardNav'] = array('default' => 'true');
+    $options['pauseOnHover'] = array('default' => 'true');
+    $options['manualAdvance'] = array('default' => 'false');
+    $options['captionOpacity'] = array('default' => '0.8');
 
     return $options;
   }
@@ -52,14 +51,6 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
       ),
       '#default_value' => '2.7.x',
       '#description' => t('Select the jQuery Nivo Slider plugin version to use.'),
-    );
-
-    $form['imagefield_preset'] = array(
-      '#type' => 'select',
-      '#title' => t('Image field style'),
-      '#options' => $presets,
-      '#default_value' => $this->options['imagefield_preset'],
-      '#description' => t('Select the image style to apply on image field.'),
     );
 
     $form['style'] = array(
@@ -102,7 +93,7 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
       '#type' => 'select',
       '#title' => t('Direction Navigator'),
       '#default_value' => $this->options['directionNav'],
-      '#options' => array('true'=>t('Yes'), 'false' => t('No') ),
+      '#options' => array('true' => t('Yes'), 'false' => t('No')),
     );
 
     $form['directionNavHide'] = array(
@@ -110,7 +101,7 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
       '#title' => t('Direction Navigator Hide'),
       '#description' => t('Only show direction navigator on mouse over.'),
       '#default_value' => $this->options['directionNavHide'],
-      '#options' => array('true'=>t('Yes'), 'false' => t('No') ),
+      '#options' => array('true' => t('Yes'), 'false' => t('No')),
       '#dependency' => array('edit-style-options-directionnav' => array('true')),
     );
 
@@ -172,7 +163,7 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
       '#title' => t('Pause on Hover'),
       '#description' => t('Stop animation while hovering.'),
       '#default_value' => $this->options['pauseOnHover'],
-      '#options' => array('true'=>t('Yes'), 'false' => t('No') ),
+      '#options' => array('true' => t('Yes'), 'false' => t('No')),
     );
 
     $form['manualAdvance'] = array(
@@ -180,14 +171,14 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
       '#title' => t('Manual Advance'),
       '#description' => t('Force manual transitions.'),
       '#default_value' => $this->options['manualAdvance'],
-      '#options' => array('true'=>t('Yes'), 'false' => t('No') ),
+      '#options' => array('true' => t('Yes'), 'false' => t('No')),
     );
 
     $form['keyboardNav'] = array(
       '#type' => 'select',
       '#title' => t('Keyboard Navigator'),
       '#default_value' => $this->options['keyboardNav'],
-      '#options' => array('true'=>t('Yes'), 'false' => t('No') ),
+      '#options' => array('true' => t('Yes'), 'false' => t('No')),
       '#dependency' => array('edit-style-options-nivo-version' => array('2.7.x')),
     );
 
@@ -204,7 +195,7 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
     return views_nivo_slider_list_themes();
   }
 
-  function get_effect_options(){
+  function get_effect_options() {
     return array(
       'random' => t('Random'),
       'boxRandom' => 'boxRandom',

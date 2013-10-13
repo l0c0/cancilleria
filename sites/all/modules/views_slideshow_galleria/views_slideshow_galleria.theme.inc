@@ -52,7 +52,7 @@ function template_preprocess_views_slideshow_galleria_main_frame(&$vars) {
 }
 
 /*
- * Helper function to build and pass Galleria settings to Drupal. 
+ * Helper function to build and pass Galleria settings to Drupal.
  */
 function _views_slideshow_galleria_add_js($options, $id) {
   static $loaded_themes;
@@ -76,7 +76,7 @@ function _views_slideshow_galleria_add_js($options, $id) {
   drupal_add_js(drupal_get_path('module', 'views_slideshow_galleria') . '/views_slideshow_galleria.js');
 
   if ($history) {
-    drupal_add_js($library_path .'/plugins/galleria.history.js');
+    drupal_add_js($library_path .'/plugins/history/galleria.history.js');
   }
 
   // Process Galleria settings.
