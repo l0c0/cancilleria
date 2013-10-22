@@ -3940,6 +3940,9 @@ a.beautytips{
   right: 35px;
   z-index: 998;
 }
+.field-label {
+  padding: 5px;
+}
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/

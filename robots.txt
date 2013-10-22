@@ -55,6 +55,12 @@ Disallow: /taxonomy/
 Disallow: /tt_ss/
 Disallow: /pp_ss/
 Disallow: /en/pp_ss/
+Disallow: /corazon-de-gobierno/
+Disallow: /en/corazon-de-gobierno/
+Disallow: /faq/
+Disallow: /procesos-de-contratacion/
+Disallow: /publicidad-pie-de-pagina/
+Disallow: /en/publicidad-pie-de-pagina/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
