@@ -49,7 +49,7 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
         '2.7.x' => '2.7.x',
         '3.x' => '3.x',
       ),
-      '#default_value' => '2.7.x',
+      '#default_value' => $this->options['nivo_version'],
       '#description' => t('Select the jQuery Nivo Slider plugin version to use.'),
     );
 
@@ -143,7 +143,8 @@ class views_nivo_slider_style_plugin extends views_plugin_style {
     $form['controlNavThumbsICField'] = array(
       '#type' => 'select',
       '#title' => t('Image style for use in thumbs'),
-      '#default_value' => $this->options['controlNavThumbsICField'],
+      '#default_value' => isset($this->options['controlNavThumbsICField']) ?
+        $this->options['controlNavThumbsICField'] : NULL,
       '#options' => array_merge(array('' => t('<None>')), $presets),
       '#dependency' => array(
         'edit-style-options-contronNav' => array('thumbsField')

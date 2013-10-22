@@ -92,8 +92,17 @@ function template_preprocess_views_nivo_slider_view_nivo_sliderfields(&$vars) {
   $options = $vars['options'];
   $style = $view->style_options;
   $row = $vars['row'];
+  $presetname = NULL;
+  if (is_object($view)) {
+    if (isset($view->field[$options['image_field']])) {
+      if (is_object($view->field[$options['image_field']])) {
+        if (isset($view->field[$options['image_field']]->options['settings']['image_style'])) {
+          $presetname = $view->field[$options['image_field']]->options['settings']['image_style'];
+        }
+      }
+    }
+  }
 
-  $presetname = $view->field[$options['image_field']]->options['settings']['image_style'];
   $thumbnail_url = $title = $link = NULL;
 
   // Force URL format for image_field
@@ -101,11 +110,12 @@ function template_preprocess_views_nivo_slider_view_nivo_sliderfields(&$vars) {
     //$view->field[$options['image_field']]->options['type'] = 'path_plain';
     $view->field[$options['image_field']]->options['alter']['make_link'] = 0;
   }
-
-  if ($style['controlNav'] == 'thumbsField') {
-    $view->field[$style['controlNavThumbsField']]->options['settings']['image_style'] = $style['controlNavThumbsICField'];
-    //$view->field[$style['controlNavThumbsField']]->options['format'] = 'path_plain';
-    $view->field[$style['controlNavThumbsField']]->options['alter']['make_link'] = 0;
+  if (isset($style['controlNav'])) {
+    if ($style['controlNav'] == 'thumbsField') {
+      $view->field[$style['controlNavThumbsField']]->options['settings']['image_style'] = $style['controlNavThumbsICField'];
+      //$view->field[$style['controlNavThumbsField']]->options['format'] = 'path_plain';
+      $view->field[$style['controlNavThumbsField']]->options['alter']['make_link'] = 0;
+    }
   }
 
   // link
@@ -179,22 +189,23 @@ function template_preprocess_views_nivo_slider_view_nivo_sliderfields(&$vars) {
         break;
     }
   }
-
-  if ($style['controlNav'] == 'thumbsIC') {
-    $turl = image_style_url($style['controlNavThumbsIC'], $image_url);
-    if ($style['nivo_version'] == '2.7.x') {
-      $attributes = array('rel' => $turl);
-    }
-    else {
-      $attributes = array('data-thumb' => $turl);
+  if (isset($style['controlNav'])) {
+    if ($style['controlNav'] == 'thumbsIC') {
+      $turl = image_style_url($style['controlNavThumbsIC'], $image_url);
+      if ($style['nivo_version'] == '2.7.x') {
+        $attributes = array('rel' => $turl);
+      }
+      else {
+        $attributes = array('data-thumb' => $turl);
+      }
     }
   }
 
   $params = array(
-    'style_name' => $presetname,
-    'path' => $image_url,
-    'title' => $title_id,
-    'attributes' => $attributes,
+    'style_name' => isset($presetname) ? $presetname : NULL,
+    'path' => isset($image_url) ? $image_url : NULL,
+    'title' => isset($title_id) ? $title_id : NULL,
+    'attributes' => isset($attributes) ? $attributes : NULL,
   );
 
   $img = (!$presetname) ? theme('image', $params) : theme('image_style', $params);
@@ -251,14 +262,16 @@ function views_nivo_slider_list_themes() {
 
   if (module_exists('libraries')) {
     $dir = libraries_get_path('nivo-slider') . '/themes';
-    if (!empty($dir)) {
-      if ($handle = opendir($dir)) {
-        while (FALSE !== ($filename = readdir($handle))) {
-          if ($filename[0] != '.') {
-            $uri = "$dir/$filename";
-            $uri = file_stream_wrapper_uri_normalize($uri);
-            if (is_dir($uri)) {
-              $themes[drupal_strtolower($filename)] = t(drupal_ucfirst($filename));
+    if (!empty($dir) && $dir != NULL) {
+      if (is_dir($dir)) {
+        if ($handle = opendir($dir)) {
+          while (FALSE !== ($filename = readdir($handle))) {
+            if ($filename[0] != '.') {
+              $uri = "$dir/$filename";
+              $uri = file_stream_wrapper_uri_normalize($uri);
+              if (is_dir($uri)) {
+                $themes[drupal_strtolower($filename)] = t(drupal_ucfirst($filename));
+              }
             }
           }
         }
