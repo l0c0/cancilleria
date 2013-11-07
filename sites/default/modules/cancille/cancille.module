@@ -19,7 +19,12 @@ function cancille_block_info() {
   $blocks['cancille_apostilla_legalizacion'] = array(
     'info' => 'cancille',
   );
- 
+  
+  $blocks['cancille_newsroom_calendar'] = array(
+    'info' => t('Newsroom calendar'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
   return $blocks;
 }
  
@@ -31,9 +36,66 @@ function cancille_block_view($delta='')
       $block['subject'] = null; // Most forms don't have a subject 
       $block['content'] = drupal_get_form('cancille_apostilla_legalizacion_form');
       break;
-   }
-   return $block;
- }
+    case 'cancille_newsroom_calendar':
+      $content = '';
+      if(arg(2)) {
+        $date = explode('-', arg(2));
+        $year = $date[0];
+      }
+      else {
+        $year = date('Y');
+      }
+      $content .= '
+<h2 class="pane-title">' . $year . '</h2>
+<ul>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-01">Enero</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-02">Febrero</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-03">Marzo</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-04">Abril</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-05">Mayo</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-06">Junio</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-07">Julio</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-08">Agosto</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-09">Septiembre</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-10">Octubre</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-11">Noviembre</a></li>
+  <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-12">Diciembre</a></li>
+</ul>
+<h2 class="pane-title">A&ntilde;os anteriores</h2>
+<ul>
+      ';
+      for($x = date('Y'); $x >= date('Y')-3; $x--){
+        $content .= '<li><a href="/' . arg(0) . '/' . arg(1) . '/' . $x . '">' . $x . '</a></li>';
+      }
+      $content .= '</ul>';
+      $block['subject'] = t('Newsroom Calendar');
+      $block['content'] = '<div>' . $content . '</div>' . drupal_render(drupal_get_form('cancille_newsroom_calendar_form'));
+  }
+
+  return $block;
+}
+
+function cancille_newsroom_calendar_form() {
+  $form = array();
+  $form['finder'] = array(
+    '#type' => 'datepicker',
+    '#date_format' => 'Y-m-d',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Search'),
+  );
+  return $form;
+}
+
+function cancille_newsroom_calendar_form_submit(&$form, &$form_state) {
+  $values =& $form_state['values'];
+  $format = 'Y-m-d';
+  $path = arg(0) . '/' . arg(1) . '/' . date($format, strtotime($values['finder']));
+  
+  $form_state['redirect'] = array($path);
+  $values =& $form_state['values'];
+}
 
 function cancille_apostilla_legalizacion_form($form, &$form_state) {
 /*

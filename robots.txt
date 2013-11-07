@@ -61,6 +61,8 @@ Disallow: /faq/
 Disallow: /procesos-de-contratacion/
 Disallow: /publicidad-pie-de-pagina/
 Disallow: /en/publicidad-pie-de-pagina/
+Disallow: /secciones/
+Disallow: /en/secciones/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
