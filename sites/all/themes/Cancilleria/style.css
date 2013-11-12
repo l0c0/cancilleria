@@ -3952,12 +3952,11 @@ a.beautytips{
 #popup-message-background {
   z-index: 101;
 }
-#Pagina_Inicial .views-row-3 .views-field-title {
-  display: none;
-}
+/* 
 #Pagina_Inicial .views-row-4 .views-field-title {
   display: none;
 }
+*/
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
