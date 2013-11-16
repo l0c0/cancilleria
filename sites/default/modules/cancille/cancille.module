@@ -42,10 +42,41 @@ function cancille_block_view($delta='')
         $date = explode('-', arg(2));
         $year = $date[0];
       }
+      elseif(arg(1)) {
+        $date = explode('-', arg(1));
+        $year = $date[0];
+      }
       else {
         $year = date('Y');
       }
-      $content .= '
+      
+      if(is_numeric($year) && !arg(2)) {
+        $content .= '
+<h2 class="pane-title">' . $year . '</h2>
+<ul>
+  <li><a href="/' . arg(0) . '/' . $year . '-01">Enero</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-02">Febrero</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-03">Marzo</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-04">Abril</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-05">Mayo</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-06">Junio</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-07">Julio</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-08">Agosto</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-09">Septiembre</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-10">Octubre</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-11">Noviembre</a></li>
+  <li><a href="/' . arg(0) . '/' . $year . '-12">Diciembre</a></li>
+</ul>
+<h2 class="pane-title">A&ntilde;os anteriores</h2>
+<ul>
+      ';
+        for($x = date('Y'); $x >= date('Y')-3; $x--){
+          $content .= '<li><a href="/' . arg(0) . '/' . $x . '">' . $x . '</a></li>';
+        }
+      }
+      else {
+        $year = date('Y');
+        $content .= '
 <h2 class="pane-title">' . $year . '</h2>
 <ul>
   <li><a href="/' . arg(0) . '/' . arg(1) . '/' . $year . '-01">Enero</a></li>
@@ -64,12 +95,15 @@ function cancille_block_view($delta='')
 <h2 class="pane-title">A&ntilde;os anteriores</h2>
 <ul>
       ';
-      for($x = date('Y'); $x >= date('Y')-3; $x--){
-        $content .= '<li><a href="/' . arg(0) . '/' . arg(1) . '/' . $x . '">' . $x . '</a></li>';
+        for($x = date('Y'); $x >= date('Y')-3; $x--){
+          $content .= '<li><a href="/' . arg(0) . '/' . arg(1) . '/' . $x . '">' . $x . '</a></li>';
+        }
       }
+      
       $content .= '</ul>';
       $block['subject'] = t('Newsroom Calendar');
       $block['content'] = '<div>' . $content . '</div>' . drupal_render(drupal_get_form('cancille_newsroom_calendar_form'));
+      break;
   }
 
   return $block;
@@ -85,13 +119,34 @@ function cancille_newsroom_calendar_form() {
     '#type' => 'submit',
     '#value' => t('Search'),
   );
+
+  $path = drupal_get_path('module','cancille');
+
+  $form['#attached']['js'] = array(
+    $path .'/js/cancille.js',
+  );
+
   return $form;
 }
 
 function cancille_newsroom_calendar_form_submit(&$form, &$form_state) {
   $values =& $form_state['values'];
   $format = 'Y-m-d';
-  $path = arg(0) . '/' . arg(1) . '/' . date($format, strtotime($values['finder']));
+  
+  if(arg(1)) {
+    $date = explode('-', arg(1));
+    $year = $date[0];
+  }
+  else {
+    $year = date('Y');
+  }
+  
+  if(is_numeric($year)) {
+    $path = arg(0) . '/' . date($format, strtotime($values['finder']));
+  }
+  else {
+    $path = arg(0) . '/' . arg(1) . '/' . date($format, strtotime($values['finder']));
+  }
   
   $form_state['redirect'] = array($path);
   $values =& $form_state['values'];

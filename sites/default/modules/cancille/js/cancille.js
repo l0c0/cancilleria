@@ -1,12 +1,8 @@
 (function ($) {
 
   $(document).ready(function(){
-//    $("#edit-pais").change(function(event) {
-//      $('.form-item-tipo').css('display','block');
-//    });
 
     $("#edit-tipo").change(function(event) {
-//      alert($("#edit-tipo").val());
       if ($("#edit-tipo").val() > 0) {
 	  $.get(Drupal.t('/cancille/@nid', {'@nid': $("#edit-tipo").val()}),
 	  function(data){
@@ -14,7 +10,10 @@
       });
       }
     });
-
+    
+    $("#edit-finder-datepicker-popup-0-wrapper").change(function(event) {
+      $('#cancille-newsroom-calendar-form').submit();
+    });
   });
 
 })(jQuery);

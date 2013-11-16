@@ -3376,6 +3376,9 @@ display:none;
 .field.field-name-field-imagen-news-thumb.field-type-image.field-label-hidden {
   text-align: center;
 }
+.field.field-name-field-imagen-publiques-thumb.field-type-image.field-label-hidden {
+  text-align: center;
+}
 .field.field-name-field-images-thumb.field-type-image.field-label-hidden {
   text-align: center;
 }
@@ -3909,6 +3912,15 @@ a.beautytips{
   padding: 2px !important;    
 }
 
+.panel-col-seventy .Cancilleria_postcontent .pane-title {
+  font-weight: bolder; 
+  margin-left: 0px;
+}
+
+.panel-col-seventy .Cancilleria_postcontent .field-item {
+  padding: 20px;
+}
+
 .panel-col-thirty .panel-pane.pane-menu-tree.pane-active, .panel-col-thirty .panel-pane.pane-custom.pane-1 {
   background: none repeat scroll 0 0 white;
   margin-right: 20px;
@@ -3923,6 +3935,7 @@ a.beautytips{
   height: 80px;
   line-height: 30px;
   margin-left: 20px;
+  margin-top: 15px;
   vertical-align: middle;
   width: 25%;
 }
@@ -3952,11 +3965,53 @@ a.beautytips{
 #popup-message-background {
   z-index: 101;
 }
+
+.pane-glosario .views-row-even {
+  background: none repeat scroll 0 0 #D3D3D3;
+  margin: 5px 15px;
+  padding: 5px;
+}
+.pane-glosario .views-row-even .field-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+.view-glosario.view-display-id-attachment_1 {
+  background: none repeat scroll 0 0 #D3D3D3;
+  margin: 0 15px 15px;
+  padding: 20px;
+}
+.view-glosario.view-display-id-attachment_1 a {
+  font-size: larger;
+  font-weight: bolder;
+  margin: 0px 9px;
+}
+.pane-glosario .views-field-description {
+  padding: 10px 0 0 10px;
+}
+.panel-col-thirty .menu li {
+  list-style: disc inside none;
+  padding: 5px;
+}
+
+.acerca-de-colombia {
+    opacity: 0.35;
+}
+.acerca-de-colombia:hover {
+    opacity: 1.00;
+}
 /* 
 #Pagina_Inicial .views-row-4 .views-field-title {
   display: none;
 }
 */
+/*Secci¨®n de Noticias*/
+
+
+
+
+
+
+
 /* End Additional CSS Styles */
 
 /* BEGIN FCKEditor, CKEditor, TinyMCE modules support*/
