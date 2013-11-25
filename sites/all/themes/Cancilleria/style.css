@@ -3400,7 +3400,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 }
 #Pagina_Inicial .media-youtube-video.media-youtube-1 iframe {
   height: 200px;
-  width: 290px;
+  width: 281px;
 }
 .media-youtube-video.media-youtube-1 {
   text-align: center;
@@ -3937,7 +3937,22 @@ a.beautytips{
   margin-left: 20px;
   margin-top: 15px;
   vertical-align: middle;
-  width: 25%;
+  width: 27%;
+}
+
+#archipielago .ui-accordion-header {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#archipielago .panel-col-thirty {
+  font-weight: 600;
+  font-size: 15px!important;
+}
+
+#archipielago .panel-col-thirty .pane-title {
+  font-weight: 600;
+  font-size: 15px!important;
 }
 
 .panel-header .pane-content {
@@ -3999,12 +4014,14 @@ a.beautytips{
 .acerca-de-colombia:hover {
     opacity: 1.00;
 }
-/* 
-#Pagina_Inicial .views-row-4 .views-field-title {
+ 
+#Pagina_Inicial .sin-titulo.views-field-title {
   display: none;
 }
-*/
-/*Secci¨®n de Noticias*/
+.views-field-field-embedded .field-content {
+  padding-left: 0px;
+}
+/*Secciï¿½ï¿½n de Noticias*/
 
 
 
