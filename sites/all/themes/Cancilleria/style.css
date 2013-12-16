@@ -538,9 +538,9 @@ li p, .Cancilleria_postcontent li p, .Cancilleria_blockcontent li p
 {
    margin:0 auto;
    height: 180px;
-   background-image: url('images/object1448112927.png'), url('images/header.jpg');
+/*   background-image: url('images/object1448112927.png'), url('images/header.jpg');
    background-position: 772px 15px, 0 0;
-   background-repeat: no-repeat;
+   background-repeat: no-repeat;*/
    position: relative;
    z-index: auto !important;
 }
