@@ -24,7 +24,7 @@ $foo = 'bar';
 define('FOO_BAR', 5);
 
 // Global variable names.
-global $user, $is_https, $_mymodule_myvar;
+global $argc, $argv, $user, $is_https, $_mymodule_myvar;
 
 /*
  * Multiline comment
@@ -594,4 +594,14 @@ class Foo implements FooInterface {
    * Some additional documentation here.
    */
   public function test2() {}
+
+  /**
+   * Returns the string representatuion of this object.
+   */
+  public function __toString() {
+    return 'foo';
+  }
 }
+
+t('Some long mulit-line 
+  text is weird, but allowed.');
