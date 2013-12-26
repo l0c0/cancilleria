@@ -3940,6 +3940,18 @@ a.beautytips{
   width: 27%;
 }
 
+.panel-top .large-title .pane-title {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  color: #000000!important;
+  float: left;
+  font-size: 36px!important;
+  line-height: 30px;
+  margin-left: 20px;
+  margin-top: 15px;
+  vertical-align: middle;
+}
+
 #archipielago .ui-accordion-header {
   font-size: 16px;
   font-weight: 600;
